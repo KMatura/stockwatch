@@ -1,17 +1,23 @@
 <template>
-  <NavBar></NavBar>
+  <div>
+    <NavBar></NavBar>
+  </div>
 </template>
 
 <script>
-import NavBar from './components/NavBar.vue'
+import NavBar from './components/NavBar.vue';
+import axios from 'axios';
 
 export default {
   name: 'App',
   components: {
-    NavBar
+    NavBar,
+  },
+  async created(){
+    const {data} = await axios.get("https://api.stockdata.org/v1/data/quote HTTP/1.");
+    console.log(data);
   }
-}
+};
 </script>
 
-<style>
-</style>
+<style></style>
