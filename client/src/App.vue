@@ -1,11 +1,13 @@
 <template>
   <div>
     <NavBar></NavBar>
+    <TrendingStocks></TrendingStocks>
   </div>
 </template>
 
 <script>
 import NavBar from './components/NavBar.vue';
+import TrendingStocks from './components/TrendingStocks.vue';
 import axios from 'axios';
 
 export default {
@@ -13,8 +15,11 @@ export default {
   components: {
     NavBar,
   },
+  data(){
+
+  },
   async created(){
-    const {data} = await axios.get("https://api.stockdata.org/v1/data/quote HTTP/1.");
+    const {data} = await axios.get("https://api.stockdata.org/v1/data/quote?symbols=AAPL,TSLA,MSFT&api_token=eJLUoUVC234SV2oMXYJYNj8SWxehg0B8HNJj41uD");
     console.log(data);
   }
 };
