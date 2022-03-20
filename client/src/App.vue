@@ -1,6 +1,7 @@
 <template>
   <div>
     <NavBar></NavBar>
+    <h6 class="text-center fs-1">Chart...</h6>
     <TrendingStocks></TrendingStocks>
   </div>
 </template>
