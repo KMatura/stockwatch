@@ -1,4 +1,5 @@
 # stockwatch
+Dani Jaber---Krzysztof Matura
 
 ## Project setup
 ```
