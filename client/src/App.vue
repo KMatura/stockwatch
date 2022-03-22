@@ -3,6 +3,7 @@
     <NavBar></NavBar>
     <h6 class="text-center fs-1">Chart...</h6>
     <TrendingStocks></TrendingStocks>
+    <LineChart></LineChart>
   </div>
 </template>
 
@@ -16,7 +17,8 @@ export default {
   name: 'App',
   components: {
     NavBar,
-  },
+    LineChart
+},
   data(){
 
   },
