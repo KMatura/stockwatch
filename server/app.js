@@ -1,7 +1,8 @@
 import express from 'express';
-import path from 'path';
-import morgan from 'morgan';
 import helmet from 'helmet';
+import dotenv from 'dotenv';
+import morgan from 'morgan';
+import path from 'path';
 
 import { config } from 'dotenv';
 config();
