@@ -1,4 +1,0 @@
-//routes
-export default{
-
-}

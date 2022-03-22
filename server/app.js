@@ -7,7 +7,7 @@ import path from 'path';
 import { config } from 'dotenv';
 config();
 
-import routes from './routes/routes.js';
+import { router as stockRouter } from './routes/stock.js';
 
 
 const app = express();
@@ -20,9 +20,9 @@ const dirname = path.resolve();
 app.use(express.static(path.join(dirname, 'public')));
 app.use(express.json());
 
+app.use(stockRouter);
 
 const PORT = process.env.PORT || 5000;
-
 app.listen(PORT, () => console.log(`Server running on port ${PORT}...`));
 
 console.log('Server started');

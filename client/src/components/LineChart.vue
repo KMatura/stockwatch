@@ -1,128 +1,52 @@
 <template>
-  <div>
-    <canvas id="myChart"></canvas>
+  <div class="small">
+    <line-chart :chart-data="datacollection"></line-chart>
+    <button @click="fillData()">Randomize</button>
   </div>
 </template>
 
 <script>
-const data = {
-  labels: ['Day 1', 'Day 2', 'Day 3', 'Day 4', 'Day 5', 'Day 6'],
-  datasets: [
-    {
-      label: 'Dataset',
-      data: Utils.numbers({ count: 6, min: -100, max: 100 }),
-      borderColor: Utils.CHART_COLORS.red,
-      backgroundColor: Utils.transparentize(Utils.CHART_COLORS.red, 0.5),
-      pointStyle: 'circle',
-      pointRadius: 10,
-      pointHoverRadius: 15,
-    },
-  ],
-};
+  import LineChart from '../LineChart'
 
-const config = {
-  type: 'line',
-  data: data,
-  options: {
-    responsive: true,
-    plugins: {
-      title: {
-        display: true,
-        text: (ctx) => 'Point Style: ' + ctx.chart.data.datasets[0].pointStyle,
+  export default {
+    components: {
+      LineChart
+    },
+    data () {
+      return {
+        datacollection: null
+      }
+    },
+    mounted () {
+      this.fillData()
+    },
+    methods: {
+      fillData () {
+        this.datacollection = {
+          labels: [this.getRandomInt(), this.getRandomInt()],
+          datasets: [
+            {
+              label: 'Data One',
+              backgroundColor: '#f87979',
+              data: [this.getRandomInt(), this.getRandomInt()]
+            }, {
+              label: 'Data One',
+              backgroundColor: '#f87979',
+              data: [this.getRandomInt(), this.getRandomInt()]
+            }
+          ]
+        }
       },
-    },
-  },
-};
-const actions = [
-  {
-    name: 'pointStyle: circle (default)',
-    handler: (chart) => {
-      chart.data.datasets.forEach((dataset) => {
-        dataset.pointStyle = 'cirlce';
-      });
-      chart.update();
-    },
-  },
-  {
-    name: 'pointStyle: cross',
-    handler: (chart) => {
-      chart.data.datasets.forEach((dataset) => {
-        dataset.pointStyle = 'cross';
-      });
-      chart.update();
-    },
-  },
-  {
-    name: 'pointStyle: crossRot',
-    handler: (chart) => {
-      chart.data.datasets.forEach((dataset) => {
-        dataset.pointStyle = 'crossRot';
-      });
-      chart.update();
-    },
-  },
-  {
-    name: 'pointStyle: dash',
-    handler: (chart) => {
-      chart.data.datasets.forEach((dataset) => {
-        dataset.pointStyle = 'dash';
-      });
-      chart.update();
-    },
-  },
-  {
-    name: 'pointStyle: line',
-    handler: (chart) => {
-      chart.data.datasets.forEach((dataset) => {
-        dataset.pointStyle = 'line';
-      });
-      chart.update();
-    },
-  },
-  {
-    name: 'pointStyle: rect',
-    handler: (chart) => {
-      chart.data.datasets.forEach((dataset) => {
-        dataset.pointStyle = 'rect';
-      });
-      chart.update();
-    },
-  },
-  {
-    name: 'pointStyle: rectRounded',
-    handler: (chart) => {
-      chart.data.datasets.forEach((dataset) => {
-        dataset.pointStyle = 'rectRounded';
-      });
-      chart.update();
-    },
-  },
-  {
-    name: 'pointStyle: rectRot',
-    handler: (chart) => {
-      chart.data.datasets.forEach((dataset) => {
-        dataset.pointStyle = 'rectRot';
-      });
-      chart.update();
-    },
-  },
-  {
-    name: 'pointStyle: star',
-    handler: (chart) => {
-      chart.data.datasets.forEach((dataset) => {
-        dataset.pointStyle = 'star';
-      });
-      chart.update();
-    },
-  },
-  {
-    name: 'pointStyle: triangle',
-    handler: (chart) => {
-      chart.data.datasets.forEach((dataset) => {
-        dataset.pointStyle = 'triangle';
-      });
-      chart.update();
-    },
-  },
-];
+      getRandomInt () {
+        return Math.floor(Math.random() * (50 - 5 + 1)) + 5
+      }
+    }
+  }
 </script>
+
+<style>
+  .small {
+    max-width: 600px;
+    margin:  150px auto;
+  }
+</style>
