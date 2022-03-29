@@ -21,7 +21,7 @@
               class="px-3 py-2 flex items-center text-sm uppercase font-bold leading-snug text-white hover:opacity-75 border-r-2 border-white"
               href="#"
             >
-              Browse
+              Home
             </a>
           </li>
           <li class="nav-item">
@@ -29,7 +29,7 @@
               class="px-3 py-2 flex items-center text-sm uppercase font-bold leading-snug text-white hover:opacity-75 border-r-2 border-white"
               href="#"
             >
-              My Dashboard
+              Dashboard
             </a>
           </li>
           <li class="nav-item">
