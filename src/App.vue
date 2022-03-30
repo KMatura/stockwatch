@@ -9,11 +9,11 @@ import { RouterLink, createWebHistory, RouterView } from 'vue-router';
     <RouterLink to="/settings" class="nav-link">Settings</RouterLink>
     <RouterLink to="/dashboard" class="nav-link">Dashboard</RouterLink>
     <h6 class="text-center fs-1">Chart...</h6>
-    <div>
+    <!-- <div>
       <div class="ibmChart">
         <canas id="ibmChart"></canas>
       </div>
-    </div>
+    </div> -->
     <!-- <h6 class="text-center fs-1">Chart...</h6>
     <TrendingStocks></TrendingStocks>
     <LineChart></LineChart> -->
@@ -21,18 +21,17 @@ import { RouterLink, createWebHistory, RouterView } from 'vue-router';
 </template>
 
 <script>
-import NavBar from './components/NavBar.vue';
 import axios from 'axios';
 
 export default {
   name: 'App',
-  components: {
-    NavBar,
-  },
+  components: {},
 };
 
 const createChart = async () => {
-  const resdata = await axios.get('https://api.stockdata.org/v1/data/eod?symbols=AAPL&api_token=cx6vIPYVwWq3TbwrbSdY3nMCulfjF4syxr0zyFAL',);
+  const resdata = await axios.get(
+    'https://api.stockdata.org/v1/data/eod?symbols=AAPL&api_token=cx6vIPYVwWq3TbwrbSdY3nMCulfjF4syxr0zyFAL',
+  );
 
   const labels = [
     resdata['data']['data']['6']['date'],
