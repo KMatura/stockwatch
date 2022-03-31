@@ -3,12 +3,12 @@ import { RouterLink, createWebHistory, RouterView } from 'vue-router';
 </script>
 
 <template>
-  <div>
-    <div><RouterView /></div>
-    <RouterLink to="/" class="nav-link">Home</RouterLink>
+  <div class="bg-indigo-50">
+    <div ><RouterView /></div>
+    <!-- <RouterLink to="/" class="nav-link">Home</RouterLink>
     <RouterLink to="/settings" class="nav-link">Settings</RouterLink>
     <RouterLink to="/dashboard" class="nav-link">Dashboard</RouterLink>
-    <h6 class="text-center fs-1">Chart...</h6>
+    <RouterLink to="/faq" class="nav-link">FAQ</RouterLink> -->
     <!-- <div>
       <div class="ibmChart">
         <canas id="ibmChart"></canas>
@@ -17,11 +17,13 @@ import { RouterLink, createWebHistory, RouterView } from 'vue-router';
     <!-- <h6 class="text-center fs-1">Chart...</h6>
     <TrendingStocks></TrendingStocks>
     <LineChart></LineChart> -->
+    <Footer></Footer>
   </div>
 </template>
 
 <script>
 import axios from 'axios';
+import Footer from './components/Footer.vue';
 
 export default {
   name: 'App',

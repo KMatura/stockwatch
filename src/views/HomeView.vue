@@ -1,11 +1,11 @@
 <template>
   <div>
     <NavBar></NavBar>
-    <CardChart></CardChart>
+    <!-- <LineChart></LineChart> -->
   </div>
 </template>
 
 <script setup>
 import NavBar from '../components/NavBar.vue';
-import CardChart from '../components/Card.vue'
+// import LineChart from '../components/LineChart.vue'
 </script>
