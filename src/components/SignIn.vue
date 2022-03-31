@@ -242,12 +242,7 @@
               />
             </div>
             <div class="ml-2">
-              <p class="text-sm font-medium leading-none text-gray-800">Anita Jane</p>
-              <p
-                class="text-sm font-medium leading-none text-gray-600 mt-1 cursor-pointer hover:underline"
-              >
-                See profile
-              </p>
+              <p class="text-sm font-medium leading-none text-gray-800">Edith Schwarzbauer</p>
             </div>
           </div>
         </div>

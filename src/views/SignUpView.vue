@@ -1,5 +1,5 @@
 <template>
-    <Navbar></Navbar>
+    <NavBar></Navbar>
     <SignUp></SignUp>
 </template>
 

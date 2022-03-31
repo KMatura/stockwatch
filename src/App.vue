@@ -3,7 +3,7 @@ import { RouterLink, createWebHistory, RouterView } from 'vue-router';
 </script>
 
 <template>
-  <div class="bg-indigo-50">
+  <div>
     <div ><RouterView /></div>
     <!-- <RouterLink to="/" class="nav-link">Home</RouterLink>
     <RouterLink to="/settings" class="nav-link">Settings</RouterLink>
