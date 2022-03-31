@@ -1,10 +1,11 @@
 <template>
   <div>
     <NavBar></NavBar>
-    <h1>Home Page</h1>
+    <!-- <LineChart></LineChart> -->
   </div>
 </template>
 
 <script setup>
 import NavBar from '../components/NavBar.vue';
+// import LineChart from '../components/LineChart.vue'
 </script>
