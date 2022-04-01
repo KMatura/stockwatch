@@ -1,3 +1,7 @@
+<script setup>
+import { RouterLink, createWebHistory, RouterView } from 'vue-router';
+</script>
+
 <template>
   <body>
     <div class="bg-indigo-50">
@@ -40,7 +44,7 @@
               href="javascript:void(0)"
               class="hover:text-gray-500 focus:text-gray-500 focus:outline-none focus:underline hover:underline text-sm font-medium leading-none text-gray-800 cursor-pointer"
             >
-              Sign up here</a
+              <RouterLink to="/signup">Sign up here</RouterLink></a
             >
           </p>
           <button
