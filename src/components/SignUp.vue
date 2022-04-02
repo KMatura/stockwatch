@@ -96,14 +96,6 @@
             Create my account
           </button>
         </div>
-        <div class="mt-8">
-          <button
-            @click="signInWithGoogle"
-            class="focus:ring-2 focus:ring-offset-2 focus:ring-indigo-700 text-sm font-semibold leading-none text-white focus:outline-none bg-indigo-700 border rounded hover:bg-indigo-600 py-4 w-full"
-          >
-            Sign In With Google
-          </button>
-        </div>
       </div>
       <div class="xl:w-1/3 md:w-1/2 lg:ml-16 ml-8 md:mt-0 mt-6">
         <div class="pl-8 md:block hidden">
@@ -198,7 +190,7 @@ const signInWithGoogle = () => {
       router.push('/');
     })
     .catch((error) => {
-
+      console.log(error.message);
     })
 
 }
