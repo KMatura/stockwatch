@@ -13,24 +13,25 @@ import { RouterLink, createWebHistory, RouterView } from 'vue-router';
 import Footer from './components/Footer.vue';
 import { onBeforeMount } from 'vue';
 import { useRouter, useRoute } from 'vue-router';
+import { getAuth, createUserWithEmailAndPassword, GoogleAuthProvider, signInWithPopup, onAuthStateChanged } from 'firebase/auth';
+import firebase from 'firebase/compat';
 
-// export default {
-//   setup() {
-//     const router = useRouter();
-//     const route = useRoute();
+export default {
+  setup() {
+    const router = useRouter();
+    const route = useRoute();
 
-//     //Falls man nicht angemeldet ist wird man ins login weitergeleitet
-//     onBeforeMount(() => {
-//       firebase.auth().onAuthStateChanged((user) => {
-//         if (!user) {
-//           router.replace('/login');
-//         } else if (route.path == "/login" || route.path == "/register") {
-//           router.replace('/');
-//         }
-//       });
-//     });
-//   }
-// };
+    onBeforeMount(() => {
+      firebase.Auth().onAuthStateChanged(user => {
+        if (!user) {
+          router.push('/login');
+        } else if (route.path == '/login' || route.path == '/register') {
+          router.replace('/');
+        }
+      });
+    })
+  }
+};
 
 const createChart = async () => {
   const resdata = await axios.get(

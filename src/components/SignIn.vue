@@ -93,7 +93,6 @@ import { RouterLink, createWebHistory, RouterView } from 'vue-router';
               aria-labelledby="email"
               type="email"
               class="bg-gray-200 border rounded text-xs font-medium leading-none placeholder-gray-800 text-gray-800 py-3 w-full pl-3 mt-2"
-              placeholder="e.g: john@gmail.com "
             />
           </div>
           <div class="mt-6 w-full">
