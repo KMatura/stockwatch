@@ -4,30 +4,33 @@ import { RouterLink, createWebHistory, RouterView } from 'vue-router';
 
 <template>
   <div>
-    <div ><RouterView /></div>
-    <!-- <RouterLink to="/" class="nav-link">Home</RouterLink>
-    <RouterLink to="/settings" class="nav-link">Settings</RouterLink>
-    <RouterLink to="/dashboard" class="nav-link">Dashboard</RouterLink>
-    <RouterLink to="/faq" class="nav-link">FAQ</RouterLink> -->
-    <!-- <div>
-      <div class="ibmChart">
-        <canas id="ibmChart"></canas>
-      </div>
-    </div> -->
-    <!-- <h6 class="text-center fs-1">Chart...</h6>
-    <LineChart></LineChart> -->
+    <RouterView />
     <Footer></Footer>
   </div>
 </template>
 
 <script>
-import axios from 'axios';
 import Footer from './components/Footer.vue';
+import { onBeforeMount } from 'vue';
+import { useRouter, useRoute } from 'vue-router';
 
-export default {
-  name: 'App',
-  components: {},
-};
+// export default {
+//   setup() {
+//     const router = useRouter();
+//     const route = useRoute();
+
+//     //Falls man nicht angemeldet ist wird man ins login weitergeleitet
+//     onBeforeMount(() => {
+//       firebase.auth().onAuthStateChanged((user) => {
+//         if (!user) {
+//           router.replace('/login');
+//         } else if (route.path == "/login" || route.path == "/register") {
+//           router.replace('/');
+//         }
+//       });
+//     });
+//   }
+// };
 
 const createChart = async () => {
   const resdata = await axios.get(

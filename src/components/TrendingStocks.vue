@@ -1,122 +1,15 @@
 <template>
   <body>
     <div class="flex flex-wrap items-center justify-center gap-7 py-20 sm:px-6 px-4">
-      <div class="w-64 p-4 rounded border hover:shadow-lg bg-white">
+      <div class="w-64 p-4 rounded border hover:shadow-lg bg-indigo-700">
         <div class="flex justify-center items-center flex-col">
-          <!-- <div>
-            <img src="https://i.ibb.co/Fz9W0TV/Mask-Group.png" alt="avatar" />
-          </div> -->
           <div class="flex justify-center items-center flex-col mt-3">
-            <p class="text-sm font-medium leading-none text-gray-800">AAPL</p>
-            <p class="text-sm font-medium leading-none text-gray-600 mt-1">Apple</p>
+            <p class="text-sm font-medium leading-none text-white">AAPL</p>
+            <p class="text-sm font-medium leading-none text-white">Apple</p>
           </div>
         </div>
         <div class="flex items-center justify-between mt-8">
-          <h1 class="text-2xl font-semibold leading-normal text-gray-800">176,80 $</h1>
-          <div class="p-1 flex justify-between">
-            <svg
-              width="16"
-              height="16"
-              viewBox="0 0 16 16"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path d="M8 14V2" stroke="#059669" stroke-linecap="round" stroke-linejoin="round" />
-              <path
-                d="M10 4L8 2L6 4"
-                stroke="#059669"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              />
-              <path d="M6 14H10" stroke="#059669" stroke-linecap="round" stroke-linejoin="round" />
-            </svg>
-            <p class="text-xs leading-3 text-green-700">4.50%</p>
-          </div>
-        </div>
-        <div class="h-16 mt-14">
-          <canvas
-            height="56"
-            tabindex="0"
-            class="focus:outline-none"
-            aria-label="graph"
-            role="img"
-            id="myChart"
-          ></canvas>
-        </div>
-        <div class="w-56 h-9">
-          <button
-            role="button"
-            aria-label="message"
-            class="focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-300 flex items-center justify-center flex-1 h-full py-3 px-20 bg-indigo-600 border rounded border-gray-200"
-          >
-            <p class="text-sm font-medium leading-none text-white">Show</p>
-          </button>
-        </div>
-      </div>
-      <div class="w-64 p-4 rounded border hover:shadow-lg bg-indigo-500">
-        <div class="flex justify-center items-center flex-col">
-          <!-- <div>
-            <img src="https://i.ibb.co/99gx0CZ/Mask-Group-1.png" alt="avatar-2" />
-          </div> -->
-          <div class="flex justify-center items-center flex-col mt-3">
-            <p class="text-sm font-medium leading-none text-gray-800">MSFT</p>
-            <p class="text-sm font-medium leading-none text-gray-600 mt-1">Microsoft</p>
-          </div>
-        </div>
-        <div class="flex items-center justify-between mt-8">
-          <h1 class="text-2xl font-semibold leading-normal text-gray-800">311,63 $</h1>
-          <div class="p-1 flex justify-between">
-            <svg
-              width="16"
-              height="16"
-              viewBox="0 0 16 16"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path d="M8 14V2" stroke="#059669" stroke-linecap="round" stroke-linejoin="round" />
-              <path
-                d="M10 4L8 2L6 4"
-                stroke="#059669"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              />
-              <path d="M6 14H10" stroke="#059669" stroke-linecap="round" stroke-linejoin="round" />
-            </svg>
-            <p class="text-xs leading-3 text-green-700">1.98%</p>
-          </div>
-        </div>
-        <div class="h-16 mt-14">
-          <canvas
-            height="56"
-            tabindex="0"
-            class="focus:outline-none"
-            aria-label="graph"
-            role="img"
-            id="myChart2"
-          ></canvas>
-        </div>
-        <div class="w-56 h-9">
-          <button
-            role="button"
-            aria-label="message"
-            class="focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-300 hover:bg-gray-100 flex items-center justify-center flex-1 h-full py-3 px-20 bg-gray-50 border rounded border-gray-200"
-          >
-            <p class="text-sm font-medium leading-none text-gray-600">Show</p>
-          </button>
-        </div>
-      </div>
-      <div class="w-64 p-4 rounded border hover:shadow-lg">
-        <div class="flex justify-center items-center flex-col">
-          <!-- <div>
-            <img src="https://i.ibb.co/4YpPvd8/Mask-Group-2.png" alt="avatar-3" />
-          </div> -->
-          <div class="flex justify-center items-center flex-col mt-3">
-            <p class="text-sm font-medium leading-none text-gray-800">GOOGL</p>
-            <p class="text-sm font-medium leading-none text-gray-600 mt-1">Alphabet Inc Class A</p>
-          </div>
-        </div>
-        <div class="flex items-center justify-between mt-8">
-          <h1 class="text-2xl font-semibold leading-normal text-gray-800">2880,95 $</h1>
+          <h1 class="text-2xl font-semibold leading-normal text-white">177,65 $</h1>
           <div class="p-1 flex justify-between">
             <svg
               width="16"
@@ -153,7 +46,105 @@
             aria-label="message"
             class="focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-300 hover:bg-gray-100 flex items-center justify-center flex-1 h-full py-3 px-20 bg-gray-50 border rounded border-gray-200"
           >
-            <p class="text-sm font-medium leading-none text-gray-600">Show</p>
+            <p class="text-sm font-medium leading-none text-indigo-700">Show</p>
+          </button>
+        </div>
+      </div>
+      <div class="w-64 p-4 rounded border hover:shadow-lg bg-indigo-700">
+        <div class="flex justify-center items-center flex-col">
+          <div class="flex justify-center items-center flex-col mt-3">
+            <p class="text-sm font-medium leading-none text-white">MSFT</p>
+            <p class="text-sm font-medium leading-none text-white mt-1">Microsoft</p>
+          </div>
+        </div>
+        <div class="flex items-center justify-between mt-8">
+          <h1 class="text-2xl font-semibold leading-normal text-white">311,63 $</h1>
+          <div class="p-1 flex justify-between">
+            <svg
+              width="16"
+              height="16"
+              viewBox="0 0 16 16"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path d="M8 14V2" stroke="#059669" stroke-linecap="round" stroke-linejoin="round" />
+              <path
+                d="M10 4L8 2L6 4"
+                stroke="#059669"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+              <path d="M6 14H10" stroke="#059669" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+            <p class="text-xs leading-3 text-green-700">1.98%</p>
+          </div>
+        </div>
+        <div class="h-16 mt-14">
+          <canvas
+            height="56"
+            tabindex="0"
+            class="focus:outline-none"
+            aria-label="graph"
+            role="img"
+            id="myChart2"
+          ></canvas>
+        </div>
+        <div class="w-56 h-9">
+          <button
+            role="button"
+            aria-label="message"
+            class="focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-300 hover:bg-gray-100 flex items-center justify-center flex-1 h-full py-3 px-20 bg-gray-50 border rounded border-gray-200"
+          >
+            <p class="text-sm font-medium leading-none text-indigo-700">Show</p>
+          </button>
+        </div>
+      </div>
+      <div class="w-64 p-4 rounded border hover:shadow-lg bg-indigo-700">
+        <div class="flex justify-center items-center flex-col">
+          <div class="flex justify-center items-center flex-col mt-3">
+            <p class="text-sm font-medium leading-none text-white">GOOGL</p>
+            <p class="text-sm font-medium leading-none text-white">Alphabet Inc Class A</p>
+          </div>
+        </div>
+        <div class="flex items-center justify-between mt-8">
+          <h1 class="text-2xl font-semibold leading-normal text-white">2880,95 $</h1>
+          <div class="p-1 flex justify-between">
+            <svg
+              width="16"
+              height="16"
+              viewBox="0 0 16 16"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path d="M8 14V2" stroke="#059669" stroke-linecap="round" stroke-linejoin="round" />
+              <path
+                d="M10 4L8 2L6 4"
+                stroke="#059669"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+              <path d="M6 14H10" stroke="#059669" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+            <p class="text-xs leading-3 text-green-700">2.90%</p>
+          </div>
+        </div>
+        <div class="h-16 mt-14">
+          <canvas
+            height="56"
+            tabindex="0"
+            class="focus:outline-none"
+            aria-label="graph"
+            role="img"
+            id="myChart3"
+          ></canvas>
+        </div>
+        <div class="w-56 h-9">
+          <button
+            role="button"
+            aria-label="message"
+            class="focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-300 hover:bg-gray-100 flex items-center justify-center flex-1 h-full py-3 px-20 bg-gray-50 border rounded border-gray-200"
+          >
+            <p class="text-sm font-medium leading-none text-indigo-700">Show</p>
           </button>
         </div>
       </div>
