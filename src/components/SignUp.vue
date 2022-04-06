@@ -160,8 +160,9 @@
 
 <script setup>
 import { ref } from 'vue';
-import { getAuth, createUserWithEmailAndPassword, GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
-import { useRouter } from 'vue-router';
+import { getAuth, createUserWithEmailAndPassword } from 'firebase/auth';
+// import firebase from 'firebase/app';
+import { useRouter, useRoute } from 'vue-router';
 
 const firstName = ref('');
 const lastName = ref('');
@@ -169,9 +170,10 @@ const email = ref('');
 const password = ref('');
 
 const router = useRouter();
+const route = useRoute();
 
 const register = () => {
-  createUserWithEmailAndPassword(getAuth(), firstName.value, lastName, email.value, password.value)
+  createUserWithEmailAndPassword(getAuth(), firstName.value, lastName.value, email.value, password.value)
     .then((data) => {
       console.log('Successfully registred!');
       router.push('/');
