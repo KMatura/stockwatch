@@ -1,32 +1,29 @@
 import axios from 'axios';
-import { add, format, sub, parseJSON, isEqual, closestIndexTo, isWeekend, previousFriday, subDays  } from 'date-fns';
+import { add, format, sub, parseJSON, isEqual, closestIndexTo, isWeekend, previousFriday, subDays, isSameDay  } from 'date-fns';
 import _ from 'lodash';
 
 
 async function get24h(){
-    let data24h;
-    let closestDate;
-    let min24hDate;
-    let indexOfClosestDate;
+    let dayData;
     try{
         const { data } = await axios.get('http://localhost:3001/data');                                     //get last 7 days intraday data
-        // const latestDate = parseJSON(data[0].date); 
-        const latestDate = parseJSON('2022-03-28T09:52:00.000Z');
+        // const latestDate = parseJSON(data[0].date); //prod
+        const currentDate = new Date();
+        const latestDate = parseJSON('2022-03-26T09:52:00.000Z');
         const date24hAgo = subDays(latestDate, 1);        
-        const lIndex = data.findIndex((element) => isEqual(latestDate, parseJSON(element.date)));                                           //Current date - 24h. 24h from now
+        const lIndex = data.findIndex((element) => isEqual(latestDate, parseJSON(element.date)));           //Index of latest date in data
         const vIndex = data.findIndex((element) => isEqual(date24hAgo, parseJSON(element.date)));           //Index of the date 24h ago
-        
-        //get all available data from the current day, if there is none, get the previous day
-        if(vIndex !== -1){                          //If the date from 24h earlier is available in data, get the data from then until now
-            data24h = _.slice(data, 0, vIndex + 1);
-        }else{                                      //If the date from 24h earlier is not available in data, get the data from the time closest to 24h ago until now
-            const sliced = _.slice(data, data.findIndex((element) => isEqual(latestDate, parseJSON(element.date))));
-            const closestIndex = closestIndexTo(date24hAgo, sliced.map((x) => parseJSON(x.date)));
-            data24h = _.slice(data, lIndex, closestIndex + 1);
+
+        if(isSameDay(currentDate, latestDate)){                                                            //if current date is same as the latest date in the provided data
+            dayData = data.filter((element) => isSameDay(parseJSON(element.date), latestDate));       //filter data to only include todays data
+            console.log(dayData[0], dayData[dayData.length - 1]);
         }
-        console.log(data24h[0], data24h[data24h.length - 1]);
-        console.log(data24h);
-        console.log(lIndex);
+        else{
+            if(isWeekend(latestDate)){
+                console.log('Weekend');
+            }
+        }
+        console.log(currentDate);
     }
     catch(error){
         console.log(error);
