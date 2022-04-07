@@ -9,7 +9,6 @@
     "preview": "vite preview",
     "intraday": "json-server --watch ./devserver/AAPL_intraday.json --port 3001",
     "holidays": "json-server --watch ./devserver/usHolidays.json --port 3002"
-
   },
   "dependencies": {
     "axios": "^0.26.1",

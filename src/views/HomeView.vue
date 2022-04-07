@@ -1,7 +1,7 @@
 <template>
   <div>
     <NavBar></NavBar>
-    <TrendingStocks></TrendingStocks>
+    <TrendingStocks :intraday24h="data"></TrendingStocks>
     <!-- <LineChart></LineChart> -->
   </div>
 </template>
