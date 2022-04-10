@@ -228,7 +228,37 @@ import { useRouter } from 'vue-router';
 const email = ref('');
 const password = ref('');
 
+const errMsg = ref('');
+
 const router = useRouter();
+
+const register = () => {
+  signInWithEmailAndPassword(getAuth(), email.value, password.value)
+    .then((data) => {
+      console.log('Erfolgreich angemeldet');
+
+      console.log(auth.currentUser);
+
+      router.push('/');
+    })
+    .catchh((error) => {
+      console.log(error);
+      switch (error.code) {
+        case 'auth/invalid-email':
+          errMsg.value = 'Bitte eine gültige E-Mail-Adresse eingeben';
+          break;
+        case 'auth/user-not-found':
+          errMsg.value = 'Diese E-Mail-Adresse ist nicht registriert';
+          break;
+        case 'auth/wrong-password':
+          errMsg.value = 'Falsches Passwort';
+          break;
+        default:
+          errMsg.value = 'Ein Fehler ist aufgetreten';
+          break;
+      }
+    });
+}
 
 const signInWithGoogle = () => {
   const provider = new GoogleAuthProvider();
