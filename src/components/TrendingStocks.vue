@@ -152,12 +152,13 @@
   </body>
 </template>
 
-<script>
+<script setup>
+// import get24h from '../../src/app.js';
 
-import get24h from '../../src/app.js'
 defineProps({
   intraday24h: Object,
 })
+
 // import Chart from 'chart.js';
 // export default {
 //   name: 'MyComponent',

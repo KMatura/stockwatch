@@ -15,7 +15,6 @@ const firebaseConfig = {
   measurementId: 'G-6S85K4BXXM',
 };
 
-// Initialize Firebase
 initializeApp(firebaseConfig);
 
 const app = createApp(App);

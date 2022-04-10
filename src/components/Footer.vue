@@ -10,7 +10,7 @@
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
           >
-          <p class="text-4xl font-bold">StockWatch</p>
+            <p class="text-4xl font-bold">StockWatch</p>
           </svg>
         </div>
         <div class="flex flex-wrap sm:gap-10 gap-8 items-center justify-center mt-8">

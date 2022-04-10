@@ -221,8 +221,12 @@ import {
   getAuth,
   GoogleAuthProvider,
   signInWithPopup,
+  signInWithEmailAndPassword,
 } from 'firebase/auth';
 import { useRouter } from 'vue-router';
+
+const email = ref('');
+const password = ref('');
 
 const router = useRouter();
 

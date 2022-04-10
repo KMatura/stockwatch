@@ -40,68 +40,55 @@
           >
         </p>
         <br />
-        <form @submit.prevent="register" class="register-child">
-          <div>
-            <label for="firsName" class="text-sm font-medium leading-none text-gray-800">
-              First name
-            </label>
+        <!-- <div>
+          <label for="firsName" class="text-sm font-medium leading-none text-gray-800">
+            First name
+          </label>
+          <input
+            aria-labelledby="firstName"
+            class="bg-gray-200 border rounded text-xs font-medium leading-none placeholder-gray-800 text-gray-800 py-3 w-full pl-3 mt-2"
+          />
+        </div>
+        <br />
+        <div>
+          <label for="lastName" class="text-sm font-medium leading-none text-gray-800">
+            Last name
+          </label>
+          <input
+            aria-labelledby="lastName"
+            class="bg-gray-200 border rounded text-xs font-medium leading-none placeholder-gray-800 text-gray-800 py-3 w-full pl-3 mt-2"
+          />
+        </div>
+        <br /> -->
+        <div>
+          <label for="email" class="text-sm font-medium leading-none text-gray-800"> Email </label>
+          <input
+            type="text"
+            v-model="email"
+            aria-labelledby="email"
+            class="bg-gray-200 border rounded text-xs font-medium leading-none placeholder-gray-800 text-gray-800 py-3 w-full pl-3 mt-2"
+          />
+        </div>
+        <div class="mt-6 w-full">
+          <label for="pass" class="text-sm font-medium leading-none text-gray-800">
+            Password
+          </label>
+          <div class="relative flex items-center justify-center">
             <input
-              v-model="firstName"
-              id="firstName"
-              aria-labelledby="firstName"
-              type="text"
-              class="bg-gray-200 border rounded text-xs font-medium leading-none placeholder-gray-800 text-gray-800 py-3 w-full pl-3 mt-2"
+              v-model="password"
+              type="password"
+              class="bg-gray-200 border rounded text-xs font-medium leading-none text-gray-800 py-3 w-full pl-3 mt-2"
             />
           </div>
-          <br />
-          <div>
-            <label for="lastName" class="text-sm font-medium leading-none text-gray-800">
-              Last name
-            </label>
-            <input
-              v-model="lastName"
-              id="lastName"
-              aria-labelledby="lastName"
-              type="text"
-              class="bg-gray-200 border rounded text-xs font-medium leading-none placeholder-gray-800 text-gray-800 py-3 w-full pl-3 mt-2"
-            />
-          </div>
-          <br />
-          <div>
-            <label for="email" class="text-sm font-medium leading-none text-gray-800">
-              Email
-            </label>
-            <input
-              v-model="email"
-              id="email"
-              aria-labelledby="email"
-              type="text"
-              class="bg-gray-200 border rounded text-xs font-medium leading-none placeholder-gray-800 text-gray-800 py-3 w-full pl-3 mt-2"
-            />
-          </div>
-          <div class="mt-6 w-full">
-            <label for="pass" class="text-sm font-medium leading-none text-gray-800">
-              Password
-            </label>
-            <div class="relative flex items-center justify-center">
-              <input
-                v-model="password"
-                id="email"
-                type="password"
-                class="bg-gray-200 border rounded text-xs font-medium leading-none text-gray-800 py-3 w-full pl-3 mt-2"
-              />
-            </div>
-          </div>
-          <div class="error">{{error}}</div>
-          <div class="mt-8">
-            <button
-              @click="register"
-              class="focus:ring-2 focus:ring-offset-2 focus:ring-indigo-700 text-sm font-semibold leading-none text-white focus:outline-none bg-indigo-700 border rounded hover:bg-indigo-600 py-4 w-full"
-            >
-              Create my account
-            </button>
-          </div>
-        </form>
+        </div>
+        <div class="mt-8">
+          <button
+            @click="register"
+            class="focus:ring-2 focus:ring-offset-2 focus:ring-indigo-700 text-sm font-semibold leading-none text-white focus:outline-none bg-indigo-700 border rounded hover:bg-indigo-600 py-4 w-full"
+          >
+            Create my account
+          </button>
+        </div>
       </div>
       <div class="xl:w-1/3 md:w-1/2 lg:ml-16 ml-8 md:mt-0 mt-6">
         <div class="pl-8 md:block hidden">
@@ -164,48 +151,25 @@
   </div>
 </template>
 
-<script>
+<script setup>
 import { ref } from 'vue';
-import SignUp from '../SignUp.js';
-import { getAuth, createUserWithEmailAndPassword } from 'firebase/auth';
+import {getAuth, createUserWithEmailAndPassword} from 'firebase/auth';
 import { useRouter, useRoute } from 'vue-router';
 
-const firstName = ref('');
-const lastName = ref('');
 const email = ref('');
 const password = ref('');
 
 const router = useRouter();
-const route = useRoute();
 
 const register = () => {
-  createUserWithEmailAndPassword(firstName.value, lastName.value, email.value, password.value)
-    .then(() => {
+  createUserWithEmailAndPassword(getAuth(), email.value, password.value)
+    .then((data) => {
+      console.log('Erfolgreich angemeldet');
       router.push('/');
-      console.log('Successfully registred!');
     })
-    .catch((error) => {
+    .catch(error => {
+      console.log(error);
       alert(error.message);
     });
-};
-
-export default{
-  setup(props, content){
-    const {error, signup} = SignUp();
-    const displayname = ref('');
-    const email = ref('');
-    const password = ref('');
-
-    const handleSubmit = async () => {
-      await signup(email.value, password.value, displayname.value);
-    };
-    return{
-      displayname,
-      email,
-      password,
-      handleSubmit,
-      error,
-    }
-  }
-};
+}
 </script>
