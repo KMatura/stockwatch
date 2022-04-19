@@ -9,7 +9,7 @@
           </div>
         </div>
         <div class="flex items-center justify-between mt-8">
-          <h1 class="text-2xl font-semibold leading-normal text-white">177,65 $</h1>
+          <h1 class="text-2xl font-semibold leading-normal text-white"></h1>
           <div class="p-1 flex justify-between">
             <svg
               width="16"
@@ -153,12 +153,10 @@
 </template>
 
 <script setup>
-// import get24h from '../../src/app.js';
+import get24h from '../../src/app.js';
 
-defineProps({
-  intraday24h: Object,
-})
-
+const intraday24h = await get24h();
+console.log(intraday24h);
 // import Chart from 'chart.js';
 // export default {
 //   name: 'MyComponent',
