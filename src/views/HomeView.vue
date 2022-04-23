@@ -1,7 +1,7 @@
 <template>
   <div>
     <NavBar></NavBar>
-    <TrendingStocks :intraday24h="data"></TrendingStocks>
+    <TrendingStocks></TrendingStocks>
   </div>
 </template>
 

@@ -6,5 +6,5 @@
 <script setup>
 import NavBar from '../components/NavBar.vue';
 import FAQ from '../components/FAQ.vue';
-import Footer from '../components/Footer.vue'
+import Footer from '../components/FooterView.vue'
 </script>
