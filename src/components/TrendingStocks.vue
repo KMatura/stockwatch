@@ -9,7 +9,7 @@
           </div>
         </div>
         <div class="flex items-center justify-between mt-8">
-          <h1 class="text-2xl font-semibold leading-normal text-white">wef</h1>
+          <h1 class="text-2xl font-semibold leading-normal text-white">{{priceForDisplay}} $</h1>
           <div class="p-1 flex justify-between">
             <svg
               width="16"
@@ -153,219 +153,229 @@
 </template>
 
 <script setup>
+import { onMounted } from 'vue';
+import get24h from '../getData.js';
 
+let priceForDisplay;
+onMounted(async() => {
+  const intraday24h = await get24h();
+  console.log(intraday24h[0].data.close);
+  priceForDisplay = intraday24h[0].data.close;
+});
 
-// import Chart from 'chart.js';
-// export default {
-//   name: 'MyComponent',
-//   data() {
-//     return {};
-//   },
-//   mounted() {
-//     this.loadCharts();
-//   },
-//   methods: {
-//     loadCharts() {
-//       var ctx = document.getElementById('myChart').getContext('2d');
-//       var gradient = ctx.createLinearGradient(2, 0, 0, 70);
-//       gradient.addColorStop(0, '#BFDBFE');
-//       gradient.addColorStop(1, '#EFF6FF');
-//       new Chart(ctx, {
-//         type: 'line',
-//         data: {
-//           labels: [
-//             'January',
-//             'February',
-//             'March',
-//             'April',
-//             'May',
-//             'June',
-//             'april, may',
-//             'june',
-//             'july',
-//             'august',
-//           ],
-//           datasets: [
-//             {
-//               label: '',
-//               borderColor: '#1D4ED8',
-//               data: [0, 9, 2, 7, 1, 9, 4, 0, 10, 4, 9],
-//               backgroundColor: gradient,
-//               pointBackgroundColor: '#1D4ED8',
-//               borderWidth: '2',
-//             },
-//           ],
-//         },
-//         options: {
-//           legend: {
-//             position: false,
-//           },
-//           ticks: {
-//             beginAtZero: true,
-//             steps: 2,
-//             stepValue: 2,
-//             max: 10,
-//           },
-//           elements: {
-//             point: {
-//               radius: 0,
-//             },
-//           },
-//           scales: {
-//             yAxes: [
-//               {
-//                 gridLines: {
-//                   display: false,
-//                 },
-//                 display: false,
-//               },
-//             ],
-//             xAxes: [
-//               {
-//                 gridLines: {
-//                   display: false,
-//                 },
-//                 display: false,
-//               },
-//             ],
-//           },
-//         },
-//       });
-//       // chart 2
-//       var ctx1 = document.getElementById('myChart2').getContext('2d');
-//       var gradient2 = ctx.createLinearGradient(2, 0, 0, 70);
-//       gradient2.addColorStop(0, '#C7D2FE');
-//       gradient2.addColorStop(1, '#EFF6FF');
-//       new Chart(ctx1, {
-//         type: 'line',
-//         data: {
-//           labels: [
-//             'January',
-//             'February',
-//             'March',
-//             'April',
-//             'May',
-//             'June',
-//             'april, may',
-//             'june',
-//             'july',
-//             'august',
-//           ],
-//           datasets: [
-//             {
-//               label: '',
-//               borderColor: '#4338CA',
-//               data: [0, 9, 2, 7, 1, 9, 4, 0, 10, 4, 9],
-//               backgroundColor: gradient2,
-//               pointBackgroundColor: '#1D4ED8',
-//               borderWidth: '2',
-//             },
-//           ],
-//         },
-//         options: {
-//           legend: {
-//             position: false,
-//           },
-//           ticks: {
-//             beginAtZero: true,
-//             steps: 2,
-//             stepValue: 2,
-//             max: 10,
-//           },
-//           elements: {
-//             point: {
-//               radius: 0,
-//             },
-//           },
-//           scales: {
-//             yAxes: [
-//               {
-//                 gridLines: {
-//                   display: false,
-//                 },
-//                 display: false,
-//               },
-//             ],
-//             xAxes: [
-//               {
-//                 gridLines: {
-//                   display: false,
-//                 },
-//                 display: false,
-//               },
-//             ],
-//           },
-//         },
-//       });
-//       // chart 3
-//       var ctx2 = document.getElementById('myChart3').getContext('2d');
-//       var gradient3 = ctx.createLinearGradient(2, 0, 0, 70);
-//       gradient3.addColorStop(0, '#DDD6FE');
-//       gradient3.addColorStop(1, '#EFF6FF');
-//       new Chart(ctx2, {
-//         type: 'line',
-//         data: {
-//           labels: [
-//             'January',
-//             'February',
-//             'March',
-//             'April',
-//             'May',
-//             'June',
-//             'april, may',
-//             'june',
-//             'july',
-//             'august',
-//           ],
-//           datasets: [
-//             {
-//               label: '',
-//               borderColor: '#6D28D9',
-//               data: [0, 9, 2, 7, 1, 9, 4, 0, 10, 4, 9],
-//               backgroundColor: gradient3,
-//               pointBackgroundColor: '#1D4ED8',
-//               borderWidth: '2',
-//             },
-//           ],
-//         },
-//         options: {
-//           legend: {
-//             position: false,
-//           },
-//           ticks: {
-//             beginAtZero: true,
-//             steps: 2,
-//             stepValue: 2,
-//             max: 10,
-//           },
-//           elements: {
-//             point: {
-//               radius: 0,
-//             },
-//           },
-//           scales: {
-//             yAxes: [
-//               {
-//                 gridLines: {
-//                   display: false,
-//                 },
-//                 display: false,
-//               },
-//             ],
-//             xAxes: [
-//               {
-//                 gridLines: {
-//                   display: false,
-//                 },
-//                 display: false,
-//               },
-//             ],
-//           },
-//         },
-//       });
-//     },
-//   },
-// };
+// if(condition) {  
+//   // import Chart from 'chart.js';
+//   // export default {
+//   //   name: 'MyComponent',
+//   //   data() {
+//   //     return {};
+//   //   },
+//   //   mounted() {
+//   //     this.loadCharts();
+//   //   },
+//   //   methods: {
+//   //     loadCharts() {
+//   //       var ctx = document.getElementById('myChart').getContext('2d');
+//   //       var gradient = ctx.createLinearGradient(2, 0, 0, 70);
+//   //       gradient.addColorStop(0, '#BFDBFE');
+//   //       gradient.addColorStop(1, '#EFF6FF');
+//   //       new Chart(ctx, {
+//   //         type: 'line',
+//   //         data: {
+//   //           labels: [
+//   //             'January',
+//   //             'February',
+//   //             'March',
+//   //             'April',
+//   //             'May',
+//   //             'June',
+//   //             'april, may',
+//   //             'june',
+//   //             'july',
+//   //             'august',
+//   //           ],
+//   //           datasets: [
+//   //             {
+//   //               label: '',
+//   //               borderColor: '#1D4ED8',
+//   //               data: [0, 9, 2, 7, 1, 9, 4, 0, 10, 4, 9],
+//   //               backgroundColor: gradient,
+//   //               pointBackgroundColor: '#1D4ED8',
+//   //               borderWidth: '2',
+//   //             },
+//   //           ],
+//   //         },
+//   //         options: {
+//   //           legend: {
+//   //             position: false,
+//   //           },
+//   //           ticks: {
+//   //             beginAtZero: true,
+//   //             steps: 2,
+//   //             stepValue: 2,
+//   //             max: 10,
+//   //           },
+//   //           elements: {
+//   //             point: {
+//   //               radius: 0,
+//   //             },
+//   //           },
+//   //           scales: {
+//   //             yAxes: [
+//   //               {
+//   //                 gridLines: {
+//   //                   display: false,
+//   //                 },
+//   //                 display: false,
+//   //               },
+//   //             ],
+//   //             xAxes: [
+//   //               {
+//   //                 gridLines: {
+//   //                   display: false,
+//   //                 },
+//   //                 display: false,
+//   //               },
+//   //             ],
+//   //           },
+//   //         },
+//   //       });
+//   //       // chart 2
+//   //       var ctx1 = document.getElementById('myChart2').getContext('2d');
+//   //       var gradient2 = ctx.createLinearGradient(2, 0, 0, 70);
+//   //       gradient2.addColorStop(0, '#C7D2FE');
+//   //       gradient2.addColorStop(1, '#EFF6FF');
+//   //       new Chart(ctx1, {
+//   //         type: 'line',
+//   //         data: {
+//   //           labels: [
+//   //             'January',
+//   //             'February',
+//   //             'March',
+//   //             'April',
+//   //             'May',
+//   //             'June',
+//   //             'april, may',
+//   //             'june',
+//   //             'july',
+//   //             'august',
+//   //           ],
+//   //           datasets: [
+//   //             {
+//   //               label: '',
+//   //               borderColor: '#4338CA',
+//   //               data: [0, 9, 2, 7, 1, 9, 4, 0, 10, 4, 9],
+//   //               backgroundColor: gradient2,
+//   //               pointBackgroundColor: '#1D4ED8',
+//   //               borderWidth: '2',
+//   //             },
+//   //           ],
+//   //         },
+//   //         options: {
+//   //           legend: {
+//   //             position: false,
+//   //           },
+//   //           ticks: {
+//   //             beginAtZero: true,
+//   //             steps: 2,
+//   //             stepValue: 2,
+//   //             max: 10,
+//   //           },
+//   //           elements: {
+//   //             point: {
+//   //               radius: 0,
+//   //             },
+//   //           },
+//   //           scales: {
+//   //             yAxes: [
+//   //               {
+//   //                 gridLines: {
+//   //                   display: false,
+//   //                 },
+//   //                 display: false,
+//   //               },
+//   //             ],
+//   //             xAxes: [
+//   //               {
+//   //                 gridLines: {
+//   //                   display: false,
+//   //                 },
+//   //                 display: false,
+//   //               },
+//   //             ],
+//   //           },
+//   //         },
+//   //       });
+//   //       // chart 3
+//   //       var ctx2 = document.getElementById('myChart3').getContext('2d');
+//   //       var gradient3 = ctx.createLinearGradient(2, 0, 0, 70);
+//   //       gradient3.addColorStop(0, '#DDD6FE');
+//   //       gradient3.addColorStop(1, '#EFF6FF');
+//   //       new Chart(ctx2, {
+//   //         type: 'line',
+//   //         data: {
+//   //           labels: [
+//   //             'January',
+//   //             'February',
+//   //             'March',
+//   //             'April',
+//   //             'May',
+//   //             'June',
+//   //             'april, may',
+//   //             'june',
+//   //             'july',
+//   //             'august',
+//   //           ],
+//   //           datasets: [
+//   //             {
+//   //               label: '',
+//   //               borderColor: '#6D28D9',
+//   //               data: [0, 9, 2, 7, 1, 9, 4, 0, 10, 4, 9],
+//   //               backgroundColor: gradient3,
+//   //               pointBackgroundColor: '#1D4ED8',
+//   //               borderWidth: '2',
+//   //             },
+//   //           ],
+//   //         },
+//   //         options: {
+//   //           legend: {
+//   //             position: false,
+//   //           },
+//   //           ticks: {
+//   //             beginAtZero: true,
+//   //             steps: 2,
+//   //             stepValue: 2,
+//   //             max: 10,
+//   //           },
+//   //           elements: {
+//   //             point: {
+//   //               radius: 0,
+//   //             },
+//   //           },
+//   //           scales: {
+//   //             yAxes: [
+//   //               {
+//   //                 gridLines: {
+//   //                   display: false,
+//   //                 },
+//   //                 display: false,
+//   //               },
+//   //             ],
+//   //             xAxes: [
+//   //               {
+//   //                 gridLines: {
+//   //                   display: false,
+//   //                 },
+//   //                 display: false,
+//   //               },
+//   //             ],
+//   //           },
+//   //         },
+//   //       });
+//   //     },
+//   //   },
+//   // };
+// }
 </script>
 
 <style scoped></style>

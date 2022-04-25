@@ -6,7 +6,6 @@ import { RouterLink, createWebHistory, RouterView } from 'vue-router';
   <div>
     <RouterView/>
     <FooterView></FooterView>
-    {{intraday24h}}
   </div>
 </template>
 
@@ -16,11 +15,6 @@ import { onBeforeMount } from 'vue';
 import { useRouter, useRoute } from 'vue-router';
 import { getAuth, createUserWithEmailAndPassword, GoogleAuthProvider, signInWithPopup, onAuthStateChanged } from 'firebase/auth';
 import firebase from 'firebase/compat';
-
-import get24h from './getData.js';
-
-const intraday24h = await get24h();
-console.log(intraday24h);
 
 export default {
   setup() {
