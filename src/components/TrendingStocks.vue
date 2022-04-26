@@ -1,6 +1,9 @@
 <template>
   <body>
-    <div class="flex flex-wrap items-center justify-center gap-7 py-20 sm:px-6 px-4">
+    <h1 class="text-2xl font-semibold leading-normal text-indigo-700 text-center">Trending today</h1>
+    <div
+      class="flex flex-wrap items-center justify-center gap-7 py-20 sm:px-6 px-4"
+    >
       <div class="w-64 p-4 rounded border hover:shadow-lg bg-indigo-700">
         <div class="flex justify-center items-center flex-col">
           <div class="flex justify-center items-center flex-col mt-3">
@@ -9,7 +12,9 @@
           </div>
         </div>
         <div class="flex items-center justify-between mt-8">
-          <h1 class="text-2xl font-semibold leading-normal text-white">{{priceForDisplay}} $</h1>
+          <h1 class="text-2xl font-semibold leading-normal text-white">
+            {{ priceForDisplay }} $
+          </h1>
           <div class="p-1 flex justify-between">
             <svg
               width="16"
@@ -18,14 +23,24 @@
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
             >
-              <path d="M8 14V2" stroke="#059669" stroke-linecap="round" stroke-linejoin="round" />
+              <path
+                d="M8 14V2"
+                stroke="#059669"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
               <path
                 d="M10 4L8 2L6 4"
                 stroke="#059669"
                 stroke-linecap="round"
                 stroke-linejoin="round"
               />
-              <path d="M6 14H10" stroke="#059669" stroke-linecap="round" stroke-linejoin="round" />
+              <path
+                d="M6 14H10"
+                stroke="#059669"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
             </svg>
             <p class="text-xs leading-3 text-green-700">2.90%</p>
           </div>
@@ -54,11 +69,15 @@
         <div class="flex justify-center items-center flex-col">
           <div class="flex justify-center items-center flex-col mt-3">
             <p class="text-sm font-medium leading-none text-white">MSFT</p>
-            <p class="text-sm font-medium leading-none text-white mt-1">Microsoft</p>
+            <p class="text-sm font-medium leading-none text-white mt-1">
+              Microsoft
+            </p>
           </div>
         </div>
         <div class="flex items-center justify-between mt-8">
-          <h1 class="text-2xl font-semibold leading-normal text-white">311,63 $</h1>
+          <h1 class="text-2xl font-semibold leading-normal text-white">
+            311,63 $
+          </h1>
           <div class="p-1 flex justify-between">
             <svg
               width="16"
@@ -67,14 +86,24 @@
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
             >
-              <path d="M8 14V2" stroke="#059669" stroke-linecap="round" stroke-linejoin="round" />
+              <path
+                d="M8 14V2"
+                stroke="#059669"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
               <path
                 d="M10 4L8 2L6 4"
                 stroke="#059669"
                 stroke-linecap="round"
                 stroke-linejoin="round"
               />
-              <path d="M6 14H10" stroke="#059669" stroke-linecap="round" stroke-linejoin="round" />
+              <path
+                d="M6 14H10"
+                stroke="#059669"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
             </svg>
             <p class="text-xs leading-3 text-green-700">1.98%</p>
           </div>
@@ -103,11 +132,15 @@
         <div class="flex justify-center items-center flex-col">
           <div class="flex justify-center items-center flex-col mt-3">
             <p class="text-sm font-medium leading-none text-white">GOOGL</p>
-            <p class="text-sm font-medium leading-none text-white">Alphabet Inc Class A</p>
+            <p class="text-sm font-medium leading-none text-white">
+              Alphabet Inc Class A
+            </p>
           </div>
         </div>
         <div class="flex items-center justify-between mt-8">
-          <h1 class="text-2xl font-semibold leading-normal text-white">2880,95 $</h1>
+          <h1 class="text-2xl font-semibold leading-normal text-white">
+            2880,95 $
+          </h1>
           <div class="p-1 flex justify-between">
             <svg
               width="16"
@@ -116,14 +149,24 @@
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
             >
-              <path d="M8 14V2" stroke="#059669" stroke-linecap="round" stroke-linejoin="round" />
+              <path
+                d="M8 14V2"
+                stroke="#059669"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
               <path
                 d="M10 4L8 2L6 4"
                 stroke="#059669"
                 stroke-linecap="round"
                 stroke-linejoin="round"
               />
-              <path d="M6 14H10" stroke="#059669" stroke-linecap="round" stroke-linejoin="round" />
+              <path
+                d="M6 14H10"
+                stroke="#059669"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
             </svg>
             <p class="text-xs leading-3 text-green-700">2.90%</p>
           </div>
@@ -153,17 +196,17 @@
 </template>
 
 <script setup>
-import { onMounted } from 'vue';
+import { onMounted, ref } from 'vue';
 import get24h from '../getData.js';
 
-let priceForDisplay;
-onMounted(async() => {
-  const intraday24h = await get24h();
-  console.log(intraday24h[0].data.close);
-  priceForDisplay = intraday24h[0].data.close;
+let priceForDisplay = ref('');
+
+onMounted(async () => {
+  const intraday24h = await get24h('MSFT');
+  // priceForDisplay.value = intraday24h[0].data.close;
 });
 
-// if(condition) {  
+// if(condition) {
 //   // import Chart from 'chart.js';
 //   // export default {
 //   //   name: 'MyComponent',
