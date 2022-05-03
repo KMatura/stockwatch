@@ -6,36 +6,6 @@
       >
         FAQ's
       </h1>
-
-      <div
-        class="lg:mt-12 bg-gray-100 dark:bg-gray-800 md:mt-10 mt-8 lg:py-7 lg:px-6 md:p-6 py-6 px-4 lg:w-8/12 w-full mx-auto"
-      >
-        <div class="flex justify-between md:flex-row flex-col">
-          <div class="md:mb-0 mb-8 md:text-left text-center">
-            <h2 class="font-medium dark:text-white text-xl leading-5 text-gray-800 lg:mb-2 mb-4">
-              Questions
-            </h2>
-            <p
-              class="font-normal dark:text-gray-300 text-sm leading-5 text-gray-600 md:w-8/12 md:ml-0 w-11/12 mx-auto"
-            >
-              If you don’t find your answer, Please contact us or Leave a Message, we’ll be more
-              than happy to assist you.
-            </p>
-          </div>
-
-          <div class="flex justify-center items-center">
-            <div
-              class="focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800 flex bg-white md:justify-center justify-between items-center px-4 py-3 w-full"
-            >
-              <input class="focus:outline-none bg-white" type="text" placeholder="Search" />
-              <img
-                src="https://tuk-cdn.s3.amazonaws.com/can-uploader/faq-8-svg1.svg"
-                alt="search"
-              />
-            </div>
-          </div>
-        </div>
-      </div>
       <div class="lg:w-8/12 w-full mx-auto">
         <!-- Question 1 -->
         <hr class="w-full lg:mt-10 md:mt-12 md:mb-8 my-8" />
