@@ -1,6 +1,7 @@
 <template>
   <body>
-    <h1 class="text-2xl font-semibold leading-normal text-indigo-700 text-center">Trending today</h1>
+    <br>
+    <h1 class="text-2xl text-3xl font-bold leading-normal text-indigo-700 text-center">Trending today</h1>
     <div
       class="flex flex-wrap items-center justify-center gap-7 py-20 sm:px-6 px-4"
     >
@@ -13,7 +14,7 @@
         </div>
         <div class="flex items-center justify-between mt-8">
           <h1 class="text-2xl font-semibold leading-normal text-white">
-            {{ priceForDisplay }} $
+            {{aapl}} $
           </h1>
           <div class="p-1 flex justify-between">
             <svg
@@ -76,7 +77,7 @@
         </div>
         <div class="flex items-center justify-between mt-8">
           <h1 class="text-2xl font-semibold leading-normal text-white">
-            311,63 $
+            {{msft}} $
           </h1>
           <div class="p-1 flex justify-between">
             <svg
@@ -139,7 +140,7 @@
         </div>
         <div class="flex items-center justify-between mt-8">
           <h1 class="text-2xl font-semibold leading-normal text-white">
-            2880,95 $
+            {{googl}} $
           </h1>
           <div class="p-1 flex justify-between">
             <svg
@@ -197,13 +198,24 @@
 
 <script setup>
 import { onMounted, ref } from 'vue';
+import axios from 'axios';
 import get24h from '../getData.js';
+
+let aapl = ref('');
+let msft = ref('');
+let googl = ref('');
 
 let priceForDisplay = ref('');
 
 onMounted(async () => {
-  const intraday24h = await get24h('MSFT');
-  // priceForDisplay.value = intraday24h[0].data.close;
+  const { data } = await axios.get(
+    'https://api.stockdata.org/v1/data/quote?symbols=AAPL%2CMSFT%2CGOOGL&api_token=eJLUoUVC234SV2oMXYJYNj8SWxehg0B8HNJj41uD'
+  );
+
+  console.log(data);
+  aapl.value = data.data[0].price;
+  msft.value = data.data[1].price;
+  googl.value = data.data[2].price;
 });
 
 // if(condition) {

@@ -20,7 +20,7 @@
                   class="lg:mr-6 mr-4 dark:text-white lg:text-2xl md:text-xl text-lg leading-6 md:leading-5 lg:leading-4 font-semibold text-gray-800"
                   >Q1.</span
                 >
-                How do i know if a product is available in boutiques?
+                blabalbalbalbabalababalb frage?
               </p>
             </div>
             <button
@@ -45,10 +45,7 @@
           </div>
           <div id="menu" v-if="showQ1" class="mt-6 w-full">
             <p class="text-base text-left leading-6 text-gray-600 dark:text-gray-300 font-normal">
-              Remember you can query the status of your orders any time in My orders in the My
-              account section. if you are not resigered at Mango.com, you can access dierectly in
-              the Orders section. In this cause, you will have enter your e-mail address and order
-              number.
+              balbabalaabalb antwort
             </p>
           </div>
         </div>
@@ -67,7 +64,7 @@
                   class="lg:mr-6 dark:text-white mr-4 lg:text-2xl md:text-xl text-lg leading-6 md:leading-5 lg:leading-4 font-semibold text-gray-800"
                   >Q2.</span
                 >
-                How can i find the prices or get other information about chanel products?
+                balbalaablabalabba frage?
               </p>
             </div>
             <button
@@ -92,10 +89,7 @@
           </div>
           <div id="menu" v-if="showQ2" class="mt-6 w-full">
             <p class="text-base text-left leading-6 text-gray-600 dark:text-gray-300 font-normal">
-              Remember you can query the status of your orders any time in My orders in the My
-              account section. if you are not resigered at Mango.com, you can access dierectly in
-              the Orders section. In this cause, you will have enter your e-mail address and order
-              number.
+              bablabalablablabalblaab text
             </p>
           </div>
         </div>
@@ -113,7 +107,7 @@
                 <span
                   class="lg:mr-6 dark:text-white mr-4 lg:text-2xl md:text-xl text-lg leading-6 md:leading-5 lg:leading-4 font-semibold text-gray-800"
                   >Q3.</span
-                >How many collections come out every year?
+                >balabalbalbabaalbalbab frage?
               </p>
             </div>
             <button
@@ -138,10 +132,7 @@
           </div>
           <div id="menu" v-if="showQ3" class="mt-6 w-full">
             <p class="text-base leading-6 text-left text-gray-600 dark:text-gray-300 font-normal">
-              Remember you can query the status of your orders any time in My orders in the My
-              account section. if you are not resigered at Mango.com, you can access dierectly in
-              the Orders section. In this cause, you will have enter your e-mail address and order
-              number.
+              balablabalabba antwort
             </p>
           </div>
         </div>
@@ -159,7 +150,7 @@
                 <span
                   class="lg:mr-6 dark:text-white mr-4 lg:text-2xl md:text-xl text-lg leading-6 md:leading-5 lg:leading-4 font-semibold text-gray-800"
                   >Q4.</span
-                >Are all of the fashion collections features on the website?
+                >babalablabalbabalbba frage?
               </p>
             </div>
             <button
@@ -184,10 +175,7 @@
           </div>
           <div id="menu" v-if="showQ4" class="mt-6 w-full">
             <p class="text-base text-left leading-6 text-gray-600 dark:text-gray-300 font-normal">
-              Remember you can query the status of your orders any time in My orders in the My
-              account section. if you are not resigered at Mango.com, you can access dierectly in
-              the Orders section. In this cause, you will have enter your e-mail address and order
-              number.
+              balbabalbalabalalblaba antwort
             </p>
           </div>
         </div>
@@ -205,7 +193,7 @@
                 <span
                   class="lg:mr-6 dark:text-white mr-4 lg:text-2xl md:text-xl text-lg leading-6 md:leading-5 lg:leading-4 font-semibold text-gray-800"
                   >Q5.</span
-                >Where do i find products that i have seen in magazines or Social Media?
+                >balabalabblablablablablablabl frage?
               </p>
             </div>
             <button
@@ -230,10 +218,7 @@
           </div>
           <div id="menu" v-if="showQ5" class="mt-6 w-full">
             <p class="text-base text-left leading-6 text-gray-600 dark:text-gray-300 font-normal">
-              Remember you can query the status of your orders any time in My orders in the My
-              account section. if you are not resigered at Mango.com, you can access dierectly in
-              the Orders section. In this cause, you will have enter your e-mail address and order
-              number.
+              balbalbalbalablbalabalbablablalbabblabablabalbalballba antwort
             </p>
           </div>
         </div>

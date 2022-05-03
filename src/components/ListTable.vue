@@ -1,10 +1,8 @@
 <template>
   <div class="mx-auto container bg-white dark:bg-gray-800 dark:bg-gray-800 shadow rounded">
-    <div
-      class="flex flex-col lg:flex-row p-4 lg:p-8 justify-between items-start lg:items-stretch w-full"
-    >
+    <!-- <h1 class="text-2xl font-bold text-center">Watchlist</h1> -->
       <div class="w-full lg:w-1/3 flex flex-col lg:flex-row items-start lg:items-center">
-        <div class="flex items-center">
+        <!-- <div class="flex items-center">
           <a
             class="text-red-500 p-2 border-transparent border bg-gray-100 dark:bg-gray-700 dark:hover:bg-gray-600 hover:bg-gray-200 cursor-pointer rounded focus:outline-none focus:border-gray-800 focus:shadow-outline-gray"
             href="javascript: void(0)"
@@ -29,48 +27,7 @@
               <path d="M9 7v-3a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v3" />
             </svg>
           </a>
-        </div>
-      </div>
-      <div
-        class="w-full lg:w-2/3 flex flex-col lg:flex-row items-start lg:items-center justify-end"
-      >
-        <div class="flex items-center lg:border-r border-gray-300 pb-3 lg:pb-0 lg:px-6">
-          <div class="relative w-32 z-10">
-            <div
-              class="pointer-events-none text-gray-600 dark:text-gray-400 absolute inset-0 m-auto mr-2 xl:mr-4 z-0 w-5 h-5"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                class="icon cursor-pointer icon-tabler icon-tabler-chevron-down"
-                width="20"
-                height="20"
-                viewBox="0 0 24 24"
-                stroke-width="1.5"
-                stroke="currentColor"
-                fill="none"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              >
-                <path stroke="none" d="M0 0h24v24H0z"></path>
-                <polyline points="6 9 12 15 18 9"></polyline>
-              </svg>
-            </div>
-
-            <select
-              aria-label="Selected tab"
-              class="focus:outline-none border border-transparent focus:border-gray-800 focus:shadow-outline-gray text-base form-select block w-full py-2 px-2 xl:px-3 rounded text-gray-600 dark:text-gray-400 appearance-none bg-transparent"
-            >
-              <option>List View</option>
-              <option>Grid View</option>
-            </select>
-          </div>
-        </div>
-
-        <div class="lg:ml-6 flex items-center">
-          <div
-            class="text-white ml-4 cursor-pointer focus:outline-none border border-transparent focus:border-gray-800 focus:shadow-outline-gray bg-indigo-700 transition duration-150 ease-in-out hover:bg-indigo-600 w-8 h-8 rounded flex items-center justify-center"
-          ></div>
-        </div>
+        </div> -->
       </div>
     </div>
     <div class="w-full overflow-x-scroll xl:overflow-x-hidden">
@@ -80,6 +37,30 @@
             <th
               class="pl-8 text-gray-600 dark:text-gray-400 font-normal pr-6 text-left text-sm tracking-normal leading-4"
             >
+            <a
+            class="text-red-500 p-2 border-transparent border dark:bg-gray-700 dark:hover:bg-gray-600 hover:bg-gray-200 cursor-pointer rounded focus:outline-none focus:border-gray-800 focus:shadow-outline-gray"
+            href="javascript: void(0)"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="icon cursor-pointer icon-tabler icon-tabler-trash"
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              stroke="currentColor"
+              fill="none"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path stroke="none" d="M0 0h24v24H0z" />
+              <line x1="4" y1="7" x2="20" y2="7" />
+              <line x1="10" y1="11" x2="10" y2="17" />
+              <line x1="14" y1="11" x2="14" y2="17" />
+              <path d="M5 7l1 12a2 2 0 0 0 2 2h8a2 2 0 0 0 2 -2l1 -12" />
+              <path d="M9 7v-3a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v3" />
+            </svg>
+          </a>
             </th>
             <th
               class="text-gray-600 dark:text-gray-400 font-normal pr-6 text-left text-sm tracking-normal leading-4"
@@ -153,7 +134,6 @@
         </tbody>
       </table>
     </div>
-  </div>
 </template>
 
 <script>
