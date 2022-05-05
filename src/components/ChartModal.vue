@@ -1,76 +1,96 @@
 <template>
-  <div>
-    <div
-      class="py-12 bg-gray-700 dark:bg-gray-900 transition duration-150 ease-in-out z-10 absolute top-0 right-0 bottom-0 left-0"
-      id="modal"
-    >
-      <div role="alert" class="container mx-auto w-11/12 md:w-2/3 max-w-lg">
-        <div
-          class="relative py-8 px-8 md:px-16 bg-white dark:bg-gray-800 dark:border-gray-700 shadow-md rounded border border-gray-400"
-        >
-          <div class="w-full flex justify-center text-green-400 mb-4">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              class="icon icon-tabler icon-tabler-circle-check"
-              width="56"
-              height="56"
-              viewBox="0 0 24 24"
-              stroke-width="1"
-              stroke="currentColor"
-              fill="none"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            >
-              <path stroke="none" d="M0 0h24v24H0z" />
-              <circle cx="12" cy="12" r="9" />
-              <path d="M9 12l2 2l4 -4" />
-            </svg>
-          </div>
-          <h1
-            class="text-center text-gray-800 dark:text-gray-100 font-lg font-bold tracking-normal leading-tight mb-4"
-          >
-            Name der Aktie
-          </h1>
-            <button
-              class="focus:outline-none ml-3 bg-gray-100 dark:bg-gray-700 dark:border-gray-700 dark:hover:bg-gray-600 transition duration-150 text-gray-600 dark:text-gray-400 ease-in-out hover:border-gray-400 hover:bg-gray-300 border rounded px-8 py-2 text-sm"
-              @click="modalHandler()"
-            >
-              Cancel
-            </button>
-          </div>
-          <div
-            class="cursor-pointer absolute top-0 right-0 mt-4 mr-5 text-gray-400 hover:text-gray-600 dark:hover:text-gray-500 transition duration-150 ease-in-out"
+  <div
+    id="modal"
+    tabindex="-1"
+    class="flex h-screen- justify-center hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 w-full md:inset-0 h-modal md:h-full"
+  >
+    <div class="m-auto relative p-4 w-full max-w-4xl h-full md:h-auto">
+      <!-- Modal content -->
+      <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
+        <!-- Modal header -->
+        <div class="flex justify-between items-center p-5 rounded-t border-b dark:border-gray-600">
+          <h3 class="text-xl font-medium text-gray-900 dark:text-white">Large modal</h3>
+          <button
             @click="modalHandler()"
+            type="button"
+            class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-white"
+            data-modal-toggle="large-modal"
           >
             <svg
+              class="w-5 h-5"
+              fill="currentColor"
+              viewBox="0 0 20 20"
               xmlns="http://www.w3.org/2000/svg"
-              aria-label="Close"
-              class="icon icon-tabler icon-tabler-x"
-              width="20"
-              height="20"
-              viewBox="0 0 24 24"
-              stroke-width="2.5"
-              stroke="currentColor"
-              fill="none"
-              stroke-linecap="round"
-              stroke-linejoin="round"
             >
-              <path stroke="none" d="M0 0h24v24H0z" />
-              <line x1="18" y1="6" x2="6" y2="18" />
-              <line x1="6" y1="6" x2="18" y2="18" />
+              <path
+                fill-rule="evenodd"
+                d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+                clip-rule="evenodd"
+              ></path>
             </svg>
-          </div>
+          </button>
+        </div>
+        <!-- Modal body -->
+        <div class="p-6 space-y-6">
+          <p class="text-base leading-relaxed text-gray-500 dark:text-gray-400">
+            With less than a month to go before the European Union enacts new consumer privacy laws
+            for its citizens, companies around the world are updating their terms of service
+            agreements to comply.
+          </p>
+          <p class="text-base leading-relaxed text-gray-500 dark:text-gray-400">
+            The European Union’s General Data Protection Regulation (G.D.P.R.) goes into effect on
+            May 25 and is meant to ensure a common set of data rights in the European Union. It
+            requires organizations to notify users as soon as possible of high-risk data breaches
+            that could personally affect them.
+          </p>
+          <p class="text-base leading-relaxed text-gray-500 dark:text-gray-400">
+            The European Union’s General Data Protection Regulation (G.D.P.R.) goes into effect on
+            May 25 and is meant to ensure a common set of data rights in the European Union. It
+            requires organizations to notify users as soon as possible of high-risk data breaches
+            that could personally affect them.
+          </p>
+          <p class="text-base leading-relaxed text-gray-500 dark:text-gray-400">
+            The European Union’s General Data Protection Regulation (G.D.P.R.) goes into effect on
+            that could personally affect them.
+          </p>
+        </div>
+        <!-- Modal footer -->
+        <div
+          class="flex items-center p-6 space-x-2 rounded-b border-t border-gray-200 dark:border-gray-600"
+        >
+          <button
+            @click="modalHandler()"
+            data-modal-toggle="large-modal"
+            type="button"
+            class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+          >
+            I accept
+          </button>
+          <button
+            @click="modalHandler()"
+            data-modal-toggle="large-modal"
+            type="button"
+            class="text-gray-500 bg-white hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-gray-200 rounded-lg border border-gray-200 text-sm font-medium px-5 py-2.5 hover:text-gray-900 focus:z-10 dark:bg-gray-700 dark:text-gray-300 dark:border-gray-500 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-600"
+          >
+            Decline
+          </button>
         </div>
       </div>
     </div>
-    <div class="w-full flex justify-center py-12" id="button">
-      <button
-        class="focus:outline-none mx-auto transition duration-150 ease-in-out hover:bg-indigo-10 bg-gray-100 font-medium rounded text-indigo-700 px-4 sm:px-8 py-2 text-xs sm:text-sm"
-        @click="modalHandler(true)"
-      >
-        Open Chart
-      </button>
-    </div>
+  </div>
+  <!-- <button class="block w-full md:w-auto text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" type="button" data-modal-toggle="extralarge-modal">
+    Extra large modal
+    </button> -->
+  <div class="w-full flex justify-center py-12" id="button">
+    <button
+      class="focus:outline-none mx-auto transition duration-150 ease-in-out hover:bg-indigo-10 bg-gray-100 font-medium rounded text-indigo-700 px-4 sm:px-8 py-2 text-xs sm:text-sm"
+      type="button"
+      data-modal-toggle="extralarge-modal"
+      @click="modalHandler(true)"
+    >
+      Open Chart
+    </button>
+  </div>
 </template>
 
 <script>
@@ -109,39 +129,3 @@ export default {
   },
 };
 </script>
-
-<!-- <template>
-  <div
-    class="modal fade fixed top-0 left-0 hidden w-full h-full outline-none overflow-x-hidden overflow-y-auto"
-    id="exampleModalLg"
-    tabindex="-1"
-    aria-labelledby="exampleModalLgLabel"
-    aria-modal="true"
-    role="dialog"
-  >
-    <div class="modal-dialog modal-lg relative w-auto pointer-events-none">
-      <div
-        class="modal-content border-none shadow-lg relative flex flex-col w-full pointer-events-auto bg-white bg-clip-padding rounded-md outline-none text-current"
-      >
-        <div
-          class="modal-header flex flex-shrink-0 items-center justify-between p-4 border-b border-gray-200 rounded-t-md"
-        >
-          <h5 class="text-xl font-medium leading-normal text-gray-800" id="exampleModalLgLabel">
-            Large modal
-          </h5>
-          <button
-            type="button"
-            class="btn-close box-content w-4 h-4 p-1 text-black border-none rounded-none opacity-50 focus:shadow-none focus:outline-none focus:opacity-100 hover:text-black hover:opacity-75 hover:no-underline"
-            data-bs-dismiss="modal"
-            aria-label="Close"
-          ></button>
-        </div>
-        <div class="modal-body relative p-4">...</div>
-      </div>
-    </div>
-  </div>
-</template>
-
-<script>
-</script>
- -->
