@@ -10,6 +10,6 @@
 <script setup>
 import NavBar from '../components/NavBar.vue';
 import TrendingStocks from '../components/TrendingStocks.vue';
-import LineChart from '../components/LineChart.vue';
 import SearchBar from '../components/SearchBar.vue';
+import LineChart from '../components/StockChart.vue';
 </script>

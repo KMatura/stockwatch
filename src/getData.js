@@ -105,6 +105,5 @@ async function get24hData(symbol) {
   }
 }
     // const { data } = await axios.get('http://localhost:3001/data'); //get last 7 days intraday data
-console.log(_.reverse(await get24hData('PFE')));
 
-export default { get24hData };
+export default get24hData;

@@ -192,7 +192,6 @@
 import { onMounted, ref } from 'vue';
 import axios from 'axios';
 import get24h from '../getData.js';
-import axios from 'axios';
 import ChartModal from './ChartModal.vue';
 
 let aapl = ref('');
@@ -209,10 +208,10 @@ onMounted(async () => {
   //   'https://api.stockdata.org/v1/data/quote?symbols=AAPL%2CMSFT%2CGOOGL&api_token=eJLUoUVC234SV2oMXYJYNj8SWxehg0B8HNJj41uD'
   // );
 
-  console.log(data);
-  aapl.value = data.data[0].price;
-  msft.value = data.data[1].price;
-  googl.value = data.data[2].price;
+  // console.log(data);
+  // aapl.value = data.data[0].price;
+  // msft.value = data.data[1].price;
+  // googl.value = data.data[2].price;
 });
 
 </script>
