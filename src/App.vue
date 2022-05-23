@@ -7,6 +7,7 @@ import { RouterLink, createWebHistory, RouterView } from 'vue-router';
     <RouterView/>
     <StockChart></StockChart>
     <FooterView></FooterView>
+    <!-- <FooterView class="content-center"></FooterView> -->
   </div>
 </template>
 

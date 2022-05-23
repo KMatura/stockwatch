@@ -1,10 +1,7 @@
 <template>
   <body>
-    <h1
-      class="text-2xl font-semibold leading-normal text-indigo-700 text-center"
-    >
-      Trending today
-    </h1>
+    <br>
+    <h1 class="text-2xl text-3xl font-bold leading-normal text-indigo-700 text-center">Trending today</h1>
     <div
       class="flex flex-wrap items-center justify-center gap-7 py-20 sm:px-6 px-4"
     >
@@ -185,24 +182,18 @@
             id="myChart3"
           ></canvas>
         </div>
-        <div class="w-56 h-9">
-          <button
-            role="button"
-            aria-label="message"
-            class="focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-300 hover:bg-gray-100 flex items-center justify-center flex-1 h-full py-3 px-20 bg-gray-50 border rounded border-gray-200"
-          >
-            <p class="text-sm font-medium leading-none text-indigo-700">Show</p>
-          </button>
+          <ChartModal></ChartModal>
         </div>
       </div>
-    </div>
   </body>
 </template>
 
 <script setup>
 import { onMounted, ref } from 'vue';
+import axios from 'axios';
 import get24h from '../getData.js';
 import axios from 'axios';
+import ChartModal from './ChartModal.vue';
 
 let aapl = ref('');
 let msft = ref('');
@@ -213,11 +204,16 @@ let googl = ref('');
 //     'https://api.stockdata.org/v1/data/quote?symbols=AAPL%2CMSFT%2CGOOGL&api_token=eJLUoUVC234SV2oMXYJYNj8SWxehg0B8HNJj41uD'
 //   );
 
-//   console.log(data);
-//   aapl.value = data.data[0].price;
-//   msft.value = data.data[1].price;
-//   googl.value = data.data[2].price;
-// });
+onMounted(async () => {
+  // const { data } = await axios.get(
+  //   'https://api.stockdata.org/v1/data/quote?symbols=AAPL%2CMSFT%2CGOOGL&api_token=eJLUoUVC234SV2oMXYJYNj8SWxehg0B8HNJj41uD'
+  // );
+
+  console.log(data);
+  aapl.value = data.data[0].price;
+  msft.value = data.data[1].price;
+  googl.value = data.data[2].price;
+});
 
 </script>
 

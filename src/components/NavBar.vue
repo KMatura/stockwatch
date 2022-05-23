@@ -5,14 +5,13 @@ import { RouterLink, createWebHistory, RouterView } from 'vue-router';
 <template>
   <div class="bg-white">
     <nav class="2xl:mx-auto sm:py-4 sm:px-7 py-5 px-4">
-      <!-- For large and Medium-sized Screen -->
       <div class="flex justify-between">
         <div class="hidden sm:flex flex-row items-center space-x-6">
           <a href="#" class="font-medium text-indigo-600 hover:text-indigo-500">
-            <RouterLink to="/dashboard">My Dashboard</RouterLink>
+            <RouterLink to="/Watchlist">Watchlist</RouterLink>
           </a>
           <a href="#" class="font-medium text-indigo-600 hover:text-indigo-500">
-            <RouterLink to="/settings">Settings</RouterLink>
+            <RouterLink to="/AboutUs">About us</RouterLink>
           </a>
           <a href="#" class="font-medium text-indigo-600 hover:text-indigo-500">
             <RouterLink to="/faq">FAQ</RouterLink>
@@ -37,7 +36,6 @@ import { RouterLink, createWebHistory, RouterView } from 'vue-router';
           </button>
         </div>
 
-        <!-- Burger Icon -->
         <div
           id="bgIcon"
           @click="toggleMenu()"
@@ -52,14 +50,13 @@ import { RouterLink, createWebHistory, RouterView } from 'vue-router';
         </div>
       </div>
 
-      <!-- Mobile and small-screen devices (toggle Menu) -->
       <div id="MobileNavigation" class="hidden sm:hidden mt-4 mx-auto">
         <div class="flex flex-row items-center justify-center space-x-6">
           <a href="#" class="font-medium text-indigo-600 hover:text-indigo-500">
-            <RouterLink to="/dashboard">My Dashboard</RouterLink>
+            <RouterLink to="/watchlist">Watchlist</RouterLink>
           </a>
           <a href="#" class="font-medium text-indigo-600 hover:text-indigo-500">
-            <RouterLink to="/settings">Settings</RouterLink>
+            <RouterLink to="/AboutUs">About us</RouterLink>
           </a>
           <a href="#" class="font-medium text-indigo-600 hover:text-indigo-500">
             <RouterLink to="/faq">FAQ</RouterLink>
