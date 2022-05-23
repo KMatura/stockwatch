@@ -1,6 +1,10 @@
 <template>
   <body>
-    <h1 class="text-2xl font-semibold leading-normal text-indigo-700 text-center">Trending today</h1>
+    <h1
+      class="text-2xl font-semibold leading-normal text-indigo-700 text-center"
+    >
+      Trending today
+    </h1>
     <div
       class="flex flex-wrap items-center justify-center gap-7 py-20 sm:px-6 px-4"
     >
@@ -13,7 +17,7 @@
         </div>
         <div class="flex items-center justify-between mt-8">
           <h1 class="text-2xl font-semibold leading-normal text-white">
-            {{ priceForDisplay }} $
+            {{ aapl }} $
           </h1>
           <div class="p-1 flex justify-between">
             <svg
@@ -76,7 +80,7 @@
         </div>
         <div class="flex items-center justify-between mt-8">
           <h1 class="text-2xl font-semibold leading-normal text-white">
-            311,63 $
+            {{ msft }} $
           </h1>
           <div class="p-1 flex justify-between">
             <svg
@@ -139,7 +143,7 @@
         </div>
         <div class="flex items-center justify-between mt-8">
           <h1 class="text-2xl font-semibold leading-normal text-white">
-            2880,95 $
+            {{ googl }} $
           </h1>
           <div class="p-1 flex justify-between">
             <svg
@@ -198,227 +202,23 @@
 <script setup>
 import { onMounted, ref } from 'vue';
 import get24h from '../getData.js';
+import axios from 'axios';
 
-let priceForDisplay = ref('');
+let aapl = ref('');
+let msft = ref('');
+let googl = ref('');
 
-onMounted(async () => {
-  const intraday24h = await get24h('MSFT');
-  // priceForDisplay.value = intraday24h[0].data.close;
-});
+// onMounted(async () => {
+//   const { data } = await axios.get(
+//     'https://api.stockdata.org/v1/data/quote?symbols=AAPL%2CMSFT%2CGOOGL&api_token=eJLUoUVC234SV2oMXYJYNj8SWxehg0B8HNJj41uD'
+//   );
 
-// if(condition) {
-//   // import Chart from 'chart.js';
-//   // export default {
-//   //   name: 'MyComponent',
-//   //   data() {
-//   //     return {};
-//   //   },
-//   //   mounted() {
-//   //     this.loadCharts();
-//   //   },
-//   //   methods: {
-//   //     loadCharts() {
-//   //       var ctx = document.getElementById('myChart').getContext('2d');
-//   //       var gradient = ctx.createLinearGradient(2, 0, 0, 70);
-//   //       gradient.addColorStop(0, '#BFDBFE');
-//   //       gradient.addColorStop(1, '#EFF6FF');
-//   //       new Chart(ctx, {
-//   //         type: 'line',
-//   //         data: {
-//   //           labels: [
-//   //             'January',
-//   //             'February',
-//   //             'March',
-//   //             'April',
-//   //             'May',
-//   //             'June',
-//   //             'april, may',
-//   //             'june',
-//   //             'july',
-//   //             'august',
-//   //           ],
-//   //           datasets: [
-//   //             {
-//   //               label: '',
-//   //               borderColor: '#1D4ED8',
-//   //               data: [0, 9, 2, 7, 1, 9, 4, 0, 10, 4, 9],
-//   //               backgroundColor: gradient,
-//   //               pointBackgroundColor: '#1D4ED8',
-//   //               borderWidth: '2',
-//   //             },
-//   //           ],
-//   //         },
-//   //         options: {
-//   //           legend: {
-//   //             position: false,
-//   //           },
-//   //           ticks: {
-//   //             beginAtZero: true,
-//   //             steps: 2,
-//   //             stepValue: 2,
-//   //             max: 10,
-//   //           },
-//   //           elements: {
-//   //             point: {
-//   //               radius: 0,
-//   //             },
-//   //           },
-//   //           scales: {
-//   //             yAxes: [
-//   //               {
-//   //                 gridLines: {
-//   //                   display: false,
-//   //                 },
-//   //                 display: false,
-//   //               },
-//   //             ],
-//   //             xAxes: [
-//   //               {
-//   //                 gridLines: {
-//   //                   display: false,
-//   //                 },
-//   //                 display: false,
-//   //               },
-//   //             ],
-//   //           },
-//   //         },
-//   //       });
-//   //       // chart 2
-//   //       var ctx1 = document.getElementById('myChart2').getContext('2d');
-//   //       var gradient2 = ctx.createLinearGradient(2, 0, 0, 70);
-//   //       gradient2.addColorStop(0, '#C7D2FE');
-//   //       gradient2.addColorStop(1, '#EFF6FF');
-//   //       new Chart(ctx1, {
-//   //         type: 'line',
-//   //         data: {
-//   //           labels: [
-//   //             'January',
-//   //             'February',
-//   //             'March',
-//   //             'April',
-//   //             'May',
-//   //             'June',
-//   //             'april, may',
-//   //             'june',
-//   //             'july',
-//   //             'august',
-//   //           ],
-//   //           datasets: [
-//   //             {
-//   //               label: '',
-//   //               borderColor: '#4338CA',
-//   //               data: [0, 9, 2, 7, 1, 9, 4, 0, 10, 4, 9],
-//   //               backgroundColor: gradient2,
-//   //               pointBackgroundColor: '#1D4ED8',
-//   //               borderWidth: '2',
-//   //             },
-//   //           ],
-//   //         },
-//   //         options: {
-//   //           legend: {
-//   //             position: false,
-//   //           },
-//   //           ticks: {
-//   //             beginAtZero: true,
-//   //             steps: 2,
-//   //             stepValue: 2,
-//   //             max: 10,
-//   //           },
-//   //           elements: {
-//   //             point: {
-//   //               radius: 0,
-//   //             },
-//   //           },
-//   //           scales: {
-//   //             yAxes: [
-//   //               {
-//   //                 gridLines: {
-//   //                   display: false,
-//   //                 },
-//   //                 display: false,
-//   //               },
-//   //             ],
-//   //             xAxes: [
-//   //               {
-//   //                 gridLines: {
-//   //                   display: false,
-//   //                 },
-//   //                 display: false,
-//   //               },
-//   //             ],
-//   //           },
-//   //         },
-//   //       });
-//   //       // chart 3
-//   //       var ctx2 = document.getElementById('myChart3').getContext('2d');
-//   //       var gradient3 = ctx.createLinearGradient(2, 0, 0, 70);
-//   //       gradient3.addColorStop(0, '#DDD6FE');
-//   //       gradient3.addColorStop(1, '#EFF6FF');
-//   //       new Chart(ctx2, {
-//   //         type: 'line',
-//   //         data: {
-//   //           labels: [
-//   //             'January',
-//   //             'February',
-//   //             'March',
-//   //             'April',
-//   //             'May',
-//   //             'June',
-//   //             'april, may',
-//   //             'june',
-//   //             'july',
-//   //             'august',
-//   //           ],
-//   //           datasets: [
-//   //             {
-//   //               label: '',
-//   //               borderColor: '#6D28D9',
-//   //               data: [0, 9, 2, 7, 1, 9, 4, 0, 10, 4, 9],
-//   //               backgroundColor: gradient3,
-//   //               pointBackgroundColor: '#1D4ED8',
-//   //               borderWidth: '2',
-//   //             },
-//   //           ],
-//   //         },
-//   //         options: {
-//   //           legend: {
-//   //             position: false,
-//   //           },
-//   //           ticks: {
-//   //             beginAtZero: true,
-//   //             steps: 2,
-//   //             stepValue: 2,
-//   //             max: 10,
-//   //           },
-//   //           elements: {
-//   //             point: {
-//   //               radius: 0,
-//   //             },
-//   //           },
-//   //           scales: {
-//   //             yAxes: [
-//   //               {
-//   //                 gridLines: {
-//   //                   display: false,
-//   //                 },
-//   //                 display: false,
-//   //               },
-//   //             ],
-//   //             xAxes: [
-//   //               {
-//   //                 gridLines: {
-//   //                   display: false,
-//   //                 },
-//   //                 display: false,
-//   //               },
-//   //             ],
-//   //           },
-//   //         },
-//   //       });
-//   //     },
-//   //   },
-//   // };
-// }
+//   console.log(data);
+//   aapl.value = data.data[0].price;
+//   msft.value = data.data[1].price;
+//   googl.value = data.data[2].price;
+// });
+
 </script>
 
 <style scoped></style>
