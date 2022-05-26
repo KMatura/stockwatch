@@ -2,7 +2,7 @@
   <div>
     <NavBar></NavBar>
     <TrendingStocks></TrendingStocks>
-    <LineChart></LineChart>
+    <StockChart></StockChart>
     <SearchBar></SearchBar>
   </div>
 </template>
@@ -11,5 +11,5 @@
 import NavBar from '../components/NavBar.vue';
 import TrendingStocks from '../components/TrendingStocks.vue';
 import SearchBar from '../components/SearchBar.vue';
-import LineChart from '../components/StockChart.vue';
+import StockChart from '../components/StockChart.vue';
 </script>
