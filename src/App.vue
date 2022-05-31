@@ -5,8 +5,6 @@ import { RouterLink, createWebHistory, RouterView } from 'vue-router';
 <template>
   <div>
     <RouterView/>
-    <FooterView></FooterView>
-    <!-- <FooterView class="content-center"></FooterView> -->
   </div>
 </template>
 

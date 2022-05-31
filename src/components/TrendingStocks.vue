@@ -56,15 +56,7 @@
             id="myChart3"
           ></canvas>
         </div>
-        <div class="w-56 h-9">
-          <button
-            role="button"
-            aria-label="message"
-            class="focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-300 hover:bg-gray-100 flex items-center justify-center flex-1 h-full py-3 px-20 bg-gray-50 border rounded border-gray-200"
-          >
-            <p class="text-sm font-medium leading-none text-indigo-700">Show</p>
-          </button>
-        </div>
+        <ChartModal></ChartModal>
       </div>
       <div class="w-64 p-4 rounded border hover:shadow-lg bg-indigo-700">
         <div class="flex justify-center items-center flex-col">
@@ -119,15 +111,7 @@
             id="myChart2"
           ></canvas>
         </div>
-        <div class="w-56 h-9">
-          <button
-            role="button"
-            aria-label="message"
-            class="focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-300 hover:bg-gray-100 flex items-center justify-center flex-1 h-full py-3 px-20 bg-gray-50 border rounded border-gray-200"
-          >
-            <p class="text-sm font-medium leading-none text-indigo-700">Show</p>
-          </button>
-        </div>
+        <ChartModal></ChartModal>
       </div>
       <div class="w-64 p-4 rounded border hover:shadow-lg bg-indigo-700">
         <div class="flex justify-center items-center flex-col">

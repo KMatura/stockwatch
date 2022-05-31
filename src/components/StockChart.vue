@@ -89,6 +89,7 @@ export default {
     }
   },
 };
+
 // const createChart = async() => {
 //   const resdata = await axios.get(
 //     'https://api.stockdata.org/v1/data/eod?symbols=AAPL&api_token=cx6vIPYVwWq3TbwrbSdY3nMCulfjF4syxr0zyFAL'
