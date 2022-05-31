@@ -1,7 +1,11 @@
 <template>
-  <Line v-if="loaded" :chart-data="chartData" :width="200" :height="200"></Line>
+  <div>
+    {{ symbol }}
+    <Line v-if="loaded" :chart-data="chartData"></Line>
+  </div>
 </template>
 <script>
+import { defineProps, ref } from 'vue';
 import {
   Chart as ChartJS,
   Title,
@@ -15,6 +19,11 @@ import {
 import { Line } from 'vue-chartjs';
 import axios from 'axios';
 import get24hData from '../getData.js';
+import { parseJSON, format } from 'date-fns';
+
+const props = defineProps({
+  symbol: String,
+});
 
 ChartJS.register(
   Title,
@@ -58,12 +67,17 @@ export default {
       ],
     },
   }),
+
   async mounted() {
     this.loaded = false;
 
     try {
-      const data = await get24hData('AAPL');
-      let dates = data.map((item) => item.date);
+      // const data = await get24hData('LHA');
+      const data = await get24hData();
+      console.log(data);
+      let dates = data.map((item) =>
+        format(parseJSON(item.date), 'dd-MM hh:mm')
+      );
 
       const closes = data.map((item) => item.data.close);
       this.chartData.labels = dates;
@@ -121,3 +135,10 @@ export default {
 //   // }
 // };
 </script>
+
+<style scoped>
+div {
+  height: 50vh;
+  width: 50vw;
+}
+</style>

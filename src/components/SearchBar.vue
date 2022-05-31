@@ -5,6 +5,7 @@
         <div class="flex flex-col w-full gap-4 lg:flex-row md:flex-col p-7">
           <div class="relative lg:max-w-[410px] w-full">
             <input
+              v-model="searchTerm"
               placeholder="Search"
               class="p-4 py-3 outline-none focus pr-10 bg-gray-100 border rounded border-gray-100 text-slate-600 lg:max-w-[410px] w-full leading-4"
             />
@@ -33,6 +34,7 @@
             </svg>
           </div>
           <button
+            @click="emits('search', searchTerm)"
             class="bg-indigo-700 text-white lg:max-w-[164px] font-medium px-6 py-4 w-full rounded-[4px] leading-[14px] hover:bg-indigo-600"
           >
             Search
@@ -42,3 +44,10 @@
     </div>
   </div>
 </template>
+
+<script setup>
+import { defineEmits, ref } from 'vue';
+
+const emits = defineEmits(['search']);
+const searchTerm = ref('');
+</script>
