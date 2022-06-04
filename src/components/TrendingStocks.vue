@@ -1,7 +1,11 @@
 <template>
   <body>
-    <br>
-    <h1 class="text-2xl text-3xl font-bold leading-normal text-indigo-700 text-center">Trending today</h1>
+    <br />
+    <h1
+      class="text-2xl text-3xl font-bold leading-normal text-indigo-700 text-center"
+    >
+      Trending today
+    </h1>
     <div
       class="flex flex-wrap items-center justify-center gap-7 py-20 sm:px-6 px-4"
     >
@@ -43,18 +47,10 @@
                 stroke-linejoin="round"
               />
             </svg>
-            <p class="text-xs leading-3 text-green-700">2.90%</p>
           </div>
         </div>
         <div class="h-16 mt-14">
-          <canvas
-            height="56"
-            tabindex="0"
-            class="focus:outline-none"
-            aria-label="graph"
-            role="img"
-            id="myChart3"
-          ></canvas>
+          <LineChart></LineChart>
         </div>
         <ChartModal></ChartModal>
       </div>
@@ -166,9 +162,9 @@
             id="myChart3"
           ></canvas>
         </div>
-          <ChartModal></ChartModal>
-        </div>
+        <ChartModal></ChartModal>
       </div>
+    </div>
   </body>
 </template>
 
@@ -177,6 +173,7 @@ import { onMounted, ref } from 'vue';
 import axios from 'axios';
 import get24h from '../getData.js';
 import ChartModal from './ChartModal.vue';
+
 
 let aapl = ref('');
 let msft = ref('');
@@ -188,16 +185,15 @@ let googl = ref('');
 //   );
 
 onMounted(async () => {
-  // const { data } = await axios.get(
-  //   'https://api.stockdata.org/v1/data/quote?symbols=AAPL%2CMSFT%2CGOOGL&api_token=eJLUoUVC234SV2oMXYJYNj8SWxehg0B8HNJj41uD'
-  // );
+  const { data } = await axios.get(
+    'https://api.stockdata.org/v1/data/quote?symbols=AAPL%2CMSFT%2CGOOGL&api_token=eJLUoUVC234SV2oMXYJYNj8SWxehg0B8HNJj41uD'
+  );
 
-  // console.log(data);
-  // aapl.value = data.data[0].price;
-  // msft.value = data.data[1].price;
-  // googl.value = data.data[2].price;
+  console.log(data);
+  aapl.value = data.data[0].price;
+  msft.value = data.data[1].price;
+  googl.value = data.data[2].price;
 });
-
 </script>
 
 <style scoped></style>

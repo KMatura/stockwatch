@@ -1,6 +1,6 @@
 <template>
   <div>
-    {{ symbol }}
+    symbol: {{ symbol }}
     <Line v-if="loaded" :chart-data="chartData"></Line>
   </div>
 </template>
@@ -20,6 +20,7 @@ import { Line } from 'vue-chartjs';
 import axios from 'axios';
 import get24hData from '../getData.js';
 import { parseJSON, format } from 'date-fns';
+import _ from 'lodash';
 
 const props = defineProps({
   symbol: String,
@@ -63,6 +64,7 @@ export default {
           data: null,
           pointRadius: 1,
           pointHitRadius: 50,
+
         },
       ],
     },
@@ -73,14 +75,14 @@ export default {
 
     try {
       // const data = await get24hData('LHA');
-      const data = await get24hData();
-      console.log(data);
+      let data = await get24hData('AAPL');
+      data = _.reverse(data);
       let dates = data.map((item) =>
         format(parseJSON(item.date), 'dd-MM hh:mm')
       );
 
       const closes = data.map((item) => item.data.close);
-      this.chartData.labels = dates;
+      this.chartData.labels = filterDates;
       this.chartData.datasets[0].label = data[0].ticker;
       this.chartData.datasets[0].data = closes;
       this.loaded = true;
@@ -88,6 +90,9 @@ export default {
       console.log(err);
     }
   },
+  props: {
+    symbol: String
+  }
 };
 
 // const createChart = async() => {

@@ -46,8 +46,6 @@
 </template>
 
 <script setup>
-import { defineEmits, ref } from 'vue';
+import { ref } from 'vue';
 
-const emits = defineEmits(['search']);
-const searchTerm = ref('');
 </script>

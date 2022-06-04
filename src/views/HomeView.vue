@@ -3,7 +3,7 @@
     <NavBar></NavBar>
     <SearchBar @search="searchIndex()"></SearchBar>
     <TrendingStocks></TrendingStocks>
-    <LineChart :symbol="symbvol"></LineChart>
+    <LineChart></LineChart>
   </div>
 </template>
 
@@ -14,9 +14,14 @@ import TrendingStocks from '../components/TrendingStocks.vue';
 import SearchBar from '../components/SearchBar.vue';
 import LineChart from '../components/StockChart.vue';
 
+import useStockStore from '../stores/store.js';
+
+const store = useStockStore();
+
+store.symbol = symbvol.value
+
 const symbvol = ref('');
 
 function searchIndex(payload) {
-  symbvol.value = payload;
-}
+  store.symbol = payload
 </script>
