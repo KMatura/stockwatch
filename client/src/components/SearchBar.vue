@@ -34,16 +34,73 @@
             </svg>
           </div>
           <button
-            @click="emits('search', searchTerm)"
             class="bg-indigo-700 text-white lg:max-w-[164px] font-medium px-6 py-4 w-full rounded-[4px] leading-[14px] hover:bg-indigo-600"
+            @click="searchSubmit"
           >
             Search
           </button>
+          {{ result }}
         </div>
       </div>
     </div>
   </div>
 </template>
+
+<script setup>
+import { computed, ref, watch } from 'vue';
+import { corporations } from '../assets/top100_list.json';
+import companies from '../../devserver/nasdaq-listed-symbols.json';
+import _ from 'lodash';
+
+
+console.log(companies);
+
+const result = ref([]);
+const searchTerm = ref('');
+
+watch(searchTerm, (newTerm, oldTerm) => {
+  const resultStart = companies.filter((corp) =>
+    corp['Company Name']
+      .toLowerCase()
+      .startsWith(searchTerm.value.toLowerCase())
+  );
+  const resultIncludes = companies.filter((corp) =>
+    corp['Company Name'].toLowerCase().includes(searchTerm.value.toLowerCase())
+  );
+  let resultCombined = [];
+
+  if (resultStart != undefined) {
+    resultCombined = [...resultCombined, ...resultStart];
+    resultCombined = _.slice(resultCombined, 0, 5);
+    console.log('combined', resultCombined);
+    if (resultCombined.length < 5) {
+      console.log('t', _.take(resultIncludes, 5 - resultCombined.length));
+      resultCombined = _.concat(
+        resultCombined,
+        _.take(resultIncludes, 5 - resultCombined.length)
+      );
+      resultCombined = [...new Set(resultCombined)];
+    }
+    console.log('s', resultCombined);
+    result.value = resultCombined;
+  }
+  if (resultStart == undefined && resultIncludes != undefined) {
+    console.log(resultIncludes);
+    resultCombined = resultIncludes.slice(0, 5);
+    result.value = resultCombined;
+  }
+
+  if (resultStart == undefined && resultIncludes == undefined) {
+    return [];
+  }
+});
+
+const searchSubmit = () => {
+  console.log('val', searchTerm.value);
+};
+
+
+</script>
 
 <script setup>
 import { defineEmits, ref } from 'vue';
