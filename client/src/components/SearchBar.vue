@@ -48,7 +48,7 @@
 
 <script setup>
 import { computed, ref, watch } from 'vue';
-import { corporations } from '../assets/top100_list.json';
+// import { corporations } from '../assets/top100_list.json';
 import companies from '../../devserver/nasdaq-listed-symbols.json';
 import _ from 'lodash';
 
@@ -102,7 +102,7 @@ const searchSubmit = () => {
 
 </script>
 
-<script setup>
+<script>
 import { defineEmits, ref } from 'vue';
 
 const emits = defineEmits(['search']);

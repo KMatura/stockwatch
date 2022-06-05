@@ -1,23 +1,16 @@
 export const users = [
   {
     id: 1,
-    name: 'John',
-    email: 'john@gmail.com',
+    name: 'Dani',
+    email: 'jaber.d03@htlwienwest.at',
     password: '1234',
-    secret: 'Likes Justin Biber',
+    secret: 'Ich mag Fußball',
   },
   {
     id: 2,
-    name: 'Sandy',
-    email: 'sandy@gmail.com',
+    name: 'Krzysztof',
+    email: 'matura.k04@htlwienwest.at',
     password: '1234',
-    secret: 'Hates Deutschrap',
-  },
-  {
-    id: 3,
-    name: 'Willy',
-    email: 'willy@gmail.com',
-    password: '1234',
-    secret: 'Sleeps with a gun under his pillow',
-  },
+    secret: 'Ich gehe gern ins Gym',
+  }
 ];
