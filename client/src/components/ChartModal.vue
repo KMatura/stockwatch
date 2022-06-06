@@ -2,12 +2,16 @@
   <div
     id="modal"
     tabindex="-1"
-    class="flex h-screen- justify-center hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 w-full md:inset-0 h-modal md:h-full"
+    class="flex h-max justify-center hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 w-full md:inset-0 h-modal md:h-full"
   >
     <div class="m-auto relative p-4 w-full max-w-4xl h-full md:h-auto">
       <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
-        <div class="flex justify-between items-center p-5 rounded-t border-b dark:border-gray-600">
-          <h3 class="text-xl font-medium text-gray-900 dark:text-white">Name der Aktie</h3>
+        <div
+          class="flex justify-between items-center p-5 rounded-t border-b dark:border-gray-600"
+        >
+          <h3 class="text-xl font-medium text-gray-900 dark:text-white">
+            {{ symbol }}
+          </h3>
           <button
             @click="modalHandler()"
             type="button"
@@ -28,7 +32,10 @@
             </svg>
           </button>
         </div>
-        <div class="p-6 space-y-6">
+        <div class="p-6 space-y-6 w-64">
+          <div class="w-64">
+            <LineChart :symbol="symbol"></LineChart> <!--nciht sofort laden -->
+          </div>
         </div>
         <div
           class="flex items-center p-6 space-x-2 rounded-b border-t border-gray-200 dark:border-gray-600"
@@ -60,14 +67,21 @@
       data-modal-toggle="extralarge-modal"
       @click="modalHandler(true)"
     >
-      Open Chart
+      View Chart {{ symbol }}
     </button>
   </div>
 </template>
 
 <script>
+import { ref } from 'vue';
+import LineChart from './StockChart.vue';
+
+
 export default {
   name: 'CentreAlignedShort',
+  components: {
+    LineChart,
+  },
   methods: {
     modalHandler(val) {
       let el = document.getElementById('modal');
@@ -99,5 +113,8 @@ export default {
       })();
     },
   },
+  props: {
+    symbol: String,
+  }
 };
 </script>

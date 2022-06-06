@@ -1,6 +1,5 @@
 <template>
   <div>
-    {{ symbol }}
     <Line v-if="loaded" :chart-data="chartData"></Line>
   </div>
 </template>
@@ -21,9 +20,6 @@ import axios from 'axios';
 import get24hData from '../getData.js';
 import { parseJSON, format } from 'date-fns';
 
-const props = defineProps({
-  symbol: String,
-});
 
 ChartJS.register(
   Title,
@@ -51,6 +47,7 @@ export default {
       type: Number,
       default: 200,
     },
+    symbol: String,
   },
   data: () => ({
     loaded: false,
@@ -73,8 +70,9 @@ export default {
 
     try {
       // const data = await get24hData('LHA');
-      const data = await get24hData();
-      console.log(data);
+      console.log('symbol', this.symbol);
+      const data = await get24hData(this.symbol);
+      console.log('stcdata',data);
       let dates = data.map((item) =>
         format(parseJSON(item.date), 'dd-MM hh:mm')
       );
@@ -89,57 +87,13 @@ export default {
     }
   },
 };
-
-// const createChart = async() => {
-//   const resdata = await axios.get(
-//     'https://api.stockdata.org/v1/data/eod?symbols=AAPL&api_token=cx6vIPYVwWq3TbwrbSdY3nMCulfjF4syxr0zyFAL'
-//   );
-
-//   const labels = [
-//     resdata['data']['data']['6']['date'],
-//     resdata['data']['data']['5']['date'],
-//     resdata['data']['data']['4']['date'],
-//     resdata['data']['data']['3']['date'],
-//     resdata['data']['data']['2']['date'],
-//     resdata['data']['data']['1']['date'],
-//     resdata['data']['data']['0']['date'],
-//   ];
-
-//   const data = {
-//     labels: labels,
-//     datasets: [
-//       {
-//         label: resdata['data']['meta']['name'],
-//         backgroundColor: 'rgb(255, 99, 132)',
-//         borderColor: 'rgb(255, 99, 132)',
-//         data: [
-//           resdata['data']['data']['0']['close'],
-//           resdata['data']['data']['1']['close'],
-//           resdata['data']['data']['2']['close'],
-//           resdata['data']['data']['3']['close'],
-//           resdata['data']['data']['4']['close'],
-//           resdata['data']['data']['5']['close'],
-//           resdata['data']['data']['6']['close'],
-//         ],
-//       },
-//     ],
-//   };
-
-//   const config = {
-//     type: 'line',
-//     data: data,
-//     options: {},
-//   };
-//   const ibmchart = new Chart(document.getElementById('chart'), config);
-//   // for (let o in resdata['data']['Monthly Time Series']) {
-//   //   console.log(o);
-//   // }
-// };
 </script>
 
 <style scoped>
-div {
-  height: 50vh;
-  width: 50vw;
+div { 
+  width: 35vw;
+  background-color:aliceblue;
+  margin-left: auto;
+  margin-right: auto;
 }
 </style>

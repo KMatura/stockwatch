@@ -1,8 +1,8 @@
 <template>
   <div class="py-4 px-7">
     <div class="flex justify-center">
-      <div class="flex justify-center pb-2 lg:flex-nowrap">
-        <div class="flex flex-col w-full gap-4 lg:flex-row md:flex-col p-7">
+      <div class="flex justify-center lg:flex-nowrap">
+        <div class="flex flex-col w-full gap-4 lg:flex-row md:flex-col px-7 pt-7 pb-2">
           <div class="relative lg:max-w-[410px] w-full">
             <input
               v-model="searchTerm"
@@ -39,21 +39,28 @@
           >
             Search
           </button>
-          {{ result }}
         </div>
       </div>
+    </div>
+    <div class="w-1/3 mx-auto">
+      <table v-if="result != undefined" class="table-auto w-full">
+        <tbody>
+          <tr v-for="(r,i) in result" :key="i" class="bg-indigo-200">
+            <td>{{ r['Company Name'] }}</td>
+            <td>{{ r['Symbol'] }}</td>
+            <ChartModal :symbol="r['Symbol']"></ChartModal>
+          </tr>
+        </tbody>
+      </table>
     </div>
   </div>
 </template>
 
 <script setup>
 import { computed, ref, watch } from 'vue';
-// import { corporations } from '../assets/top100_list.json';
 import companies from '../../devserver/nasdaq-listed-symbols.json';
 import _ from 'lodash';
-
-
-console.log(companies);
+import ChartModal from './ChartModal.vue';
 
 const result = ref([]);
 const searchTerm = ref('');
@@ -93,18 +100,16 @@ watch(searchTerm, (newTerm, oldTerm) => {
   if (resultStart == undefined && resultIncludes == undefined) {
     return [];
   }
+
 });
 
 const searchSubmit = () => {
   console.log('val', searchTerm.value);
 };
-
-
 </script>
 
-<script>
-import { defineEmits, ref } from 'vue';
-
-const emits = defineEmits(['search']);
-const searchTerm = ref('');
-</script>
+<style>
+[v-cloak]{
+  display: none;
+}
+</style>

@@ -56,7 +56,7 @@
             id="myChart3"
           ></canvas>
         </div>
-        <ChartModal></ChartModal>
+        <ChartModal symbol="AAPL"></ChartModal>
       </div>
       <div class="w-64 p-4 rounded border hover:shadow-lg bg-indigo-700">
         <div class="flex justify-center items-center flex-col">
@@ -111,7 +111,7 @@
             id="myChart2"
           ></canvas>
         </div>
-        <ChartModal></ChartModal>
+        <ChartModal symbol="MSFT"></ChartModal>
       </div>
       <div class="w-64 p-4 rounded border hover:shadow-lg bg-indigo-700">
         <div class="flex justify-center items-center flex-col">
@@ -166,7 +166,7 @@
             id="myChart3"
           ></canvas>
         </div>
-          <ChartModal></ChartModal>
+          <ChartModal symbol="GOOGL"></ChartModal>
         </div>
       </div>
   </body>
@@ -200,4 +200,3 @@ let googl = ref('');
 
 </script>
 
-<style scoped></style>
