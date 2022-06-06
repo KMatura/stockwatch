@@ -28,7 +28,11 @@ const validateRegister = validator({
       required: true,
       type: 'string',
     },
-    name: {
+    firstName: {
+      required: true,
+      type: 'string',
+    },
+    lastName: {
       required: true,
       type: 'string',
     },

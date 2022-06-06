@@ -27,7 +27,7 @@ import { RouterLink, createWebHistory, RouterView } from 'vue-router';
           <button
             class="rounded-md flex space-x-2 w-24 h-10 font-normal text-sm leading-3 text-indigo-700 bg-white border border-indigo-700 focus:outline-none focus:bg-gray-200 hover:bg-gray-200 duration-150 justify-center items-center"
           >
-            <RouterLink to="/signup">SignUp</RouterLink>
+            <RouterLink to="/register">Register</RouterLink>
           </button>
           <button
             class="rounded-md flex space-x-2 w-24 h-10 font-normal text-sm leading-3 text-white bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-700 focus:bg-indigo-600 hover:bg-indigo-600 duration-150 justify-center items-center"

@@ -176,7 +176,6 @@ const register = async () => {
       email: email.value,
       password: password.value,
     });
-    message.value = data;
   } catch (error) {
     if (error.response.status === 404) message.value = 'Server antwortet nicht';
     else message.value = error.response.data;
