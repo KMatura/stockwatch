@@ -23,9 +23,9 @@ const register = (req, res) => {
   if (!validateRegister(req.body)) return res.status(400).send('Your input has a wrong format!');
   const checkUser = users.find((el) => el.email === req.body.email);
   if (checkUser) return res.status(409).send('The provided email already exists!.');
-  const { name, email, password } = req.body;
+  const { firstName, lastName, email, password } = req.body;
   const id = Math.max(...users.map((el) => el.id)) + 1;
-  users.push({ id, name, email, password });
+  users.push({ id, firstName, lastName, email, password });
   return res.status(200).json('Congratulations! You are registered!');
 };
 
