@@ -162,12 +162,7 @@
             id="myChart3"
           ></canvas>
         </div>
-<<<<<<< HEAD:src/components/TrendingStocks.vue
         <ChartModal></ChartModal>
-=======
-          <ChartModal symbol="GOOGL"></ChartModal>
-        </div>
->>>>>>> 53c05bb206e7ba70e8f50328c5de40b949afc061:client/src/components/TrendingStocks.vue
       </div>
     </div>
   </body>
@@ -189,7 +184,6 @@ let googl = ref('');
 //     'https://api.stockdata.org/v1/data/quote?symbols=AAPL%2CMSFT%2CGOOGL&api_token=eJLUoUVC234SV2oMXYJYNj8SWxehg0B8HNJj41uD'
 //   );
 
-<<<<<<< HEAD:src/components/TrendingStocks.vue
 onMounted(async () => {
   const { data } = await axios.get(
     'https://api.stockdata.org/v1/data/quote?symbols=AAPL%2CMSFT%2CGOOGL&api_token=eJLUoUVC234SV2oMXYJYNj8SWxehg0B8HNJj41uD'
@@ -200,18 +194,5 @@ onMounted(async () => {
   msft.value = data.data[1].price;
   googl.value = data.data[2].price;
 });
-=======
-// onMounted(async () => {
-//   const { data } = await axios.get(
-//     'https://api.stockdata.org/v1/data/quote?symbols=AAPL%2CMSFT%2CGOOGL&api_token=eJLUoUVC234SV2oMXYJYNj8SWxehg0B8HNJj41uD'
-//   );
-
-//   console.log(data);
-//   aapl.value = data.data[0].price;
-//   msft.value = data.data[1].price;
-//   googl.value = data.data[2].price;
-// });
-
->>>>>>> 53c05bb206e7ba70e8f50328c5de40b949afc061:client/src/components/TrendingStocks.vue
 </script>
 
