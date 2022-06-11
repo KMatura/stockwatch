@@ -18,11 +18,11 @@ import { useStockStore } from '../stores/store.js';
 
 const store = useStockStore();
 
-const symbvol = ref('');
+// const symbvol = ref('');
 
-store.symbol = symbvol.value;
+// store.symbol = symbvol.value;
 
-function searchIndex(payload) {
-  store.symbol = payload;
-}
+// function searchIndex(payload) {
+//   store.symbol = payload;
+// }
 </script>
