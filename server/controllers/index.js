@@ -1,38 +1,63 @@
 import { validateLogin, validateRegister } from './validators.js';
 import { users } from '../models/users.js';
+import bcrypt from 'bcrypt';
 
-const login = (req, res) => {
-  if (!validateLogin(req.body)) return res.status(400).send('Your input has a wrong format!');
-  const { email, password } = req.body;
-  const user = users.find((el) => el.email === email && el.password === password);
+const login = async (req, res) => {
+  if (!validateLogin(req.body)) return res.status(400).send('Invalid data!');
+  const user = await dbGetUserByEmail(req.body.email);
+  if (!user) return res.status(404).send('Not found!');
+  if ((await bcrypt.compare(req.body.password, user.password)) == false)
+    return res.status(401).send('Invalid password!');
   if (user) {
-    const { id, name } = user;
-    req.session.userid = id;
-    return res.status(200).json({ id, name });
+    const { uid, name } = user;
+    req.session.userId = user.uid;
+    return res.status(200).json({ uid, name });
   }
-  res.status(401).end();
 };
 
 const logout = (req, res) => {
   req.session.destroy();
-  res.clearCookies(process.env.SESSION_NAME);
-  return res.status(200).end();
+  res.clearCookie(process.env.SESSION_NAME);
+  return res.status(200).send('Logout success!');
 };
 
-const register = (req, res) => {
-  if (!validateRegister(req.body)) return res.status(400).send('Your input has a wrong format!');
-  const checkUser = users.find((el) => el.email === req.body.email);
-  if (checkUser) return res.status(409).send('The provided email already exists!.');
-  const { firstName, lastName, email, password } = req.body;
-  const id = Math.max(...users.map((el) => el.id)) + 1;
-  users.push({ id, firstName, lastName, email, password });
-  return res.status(200).json('Congratulations! You are registered!');
+const register = async (req, res) => {
+  const users = await dbGetUsers();
+  if (!validateRegister(req.body)) return res.status(400).send('Invalid data!');
+  const user = users.find((u) => u.email === req.body.email);
+  if (user) return res.status(400).send('User already exists!');
+
+  const hashedPassword = await bcrypt.hash(req.body.password, 10);
+
+  console.log(hashedPassword);
+  console.log(await bcrypt.compare(req.body.password, hashedPassword));
+
+  const newUser = {
+    name: req.body.name,
+    email: req.body.email,
+    password: hashedPassword,
+    secret: req.body.secret,
+  };
+  const response = await dbPostUser(newUser);
+  res.status(200).send(response);
 };
 
-const getSecret = (req, res) => {
-  const user = users.find((el) => el.id === Number(req.params.id));
+const getSecret = async (req, res) => {
+  const users = await dbGetUsers();
+  const user = users.find((el) => el.uid === Number(req.params.id));
   if (!user) return res.status(404).send('Server error!');
   res.status(200).send(user.secret);
+};
+
+const redirectLogin = (req, res, next) => {
+  console.log(req.session);
+  if (!req.session.userid) res.status(400).send('You are not logged in!');
+  else next();
+};
+
+const isauthenticated = (req, res) => {
+  if (req.session.userid) return true;
+  return false;
 };
 
 export { login, logout, register, getSecret };

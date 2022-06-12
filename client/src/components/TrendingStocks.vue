@@ -162,7 +162,7 @@
             id="myChart3"
           ></canvas>
         </div>
-        <ChartModal></ChartModal>
+        <ChartModal symbol="GOOGL"></ChartModal>
       </div>
     </div>
   </body>
