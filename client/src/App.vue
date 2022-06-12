@@ -5,6 +5,7 @@ import { RouterLink, createWebHistory, RouterView } from 'vue-router';
 <template>
   <div>
     <RouterView/>
+    <FooterView></FooterView>
   </div>
 </template>
 

@@ -37,6 +37,7 @@
             </p>
             <div class="border-l border-gray-800 pl-2 ml-2">
               <p class="text-base leading-4 text-gray-800">Inc. All righys reserved</p>
+              <a href="https://clearbit.com">Logos provided by Clearbit</a>
             </div>
           </div>
         </div>

@@ -1,9 +1,7 @@
 <template>
-  <body>
+  <div class="mb-32">
     <br />
-    <h1
-      class="text-2xl text-3xl font-bold leading-normal text-indigo-700 text-center"
-    >
+    <h1 class="text-2xl font-bold leading-normal text-indigo-700 text-center">
       Trending today
     </h1>
     <div
@@ -12,51 +10,39 @@
       <div class="w-64 p-4 rounded border hover:shadow-lg bg-indigo-700">
         <div class="flex justify-center items-center flex-col">
           <div class="flex justify-center items-center flex-col mt-3">
+            <div class="image">
+              <img src="https://logo.clearbit.com/apple.com?size=80" />
+            </div>
             <p class="text-sm font-medium leading-none text-white">AAPL</p>
             <p class="text-sm font-medium leading-none text-white">Apple</p>
           </div>
         </div>
         <div class="flex items-center justify-between mt-8">
           <h1 class="text-2xl font-semibold leading-normal text-white">
-            {{ aapl }} $
+            {{ aapl.price }} $
           </h1>
-          <div class="p-1 flex justify-between">
-            <svg
-              width="16"
-              height="16"
-              viewBox="0 0 16 16"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M8 14V2"
-                stroke="#059669"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              />
-              <path
-                d="M10 4L8 2L6 4"
-                stroke="#059669"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              />
-              <path
-                d="M6 14H10"
-                stroke="#059669"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              />
-            </svg>
-          </div>
+          <p
+            :class="{
+              'text-red-500': aapl.day_change < 0,
+              'text-green-600': aapl.day_change > 0,
+            }"
+          >
+            {{ aapl.day_change }}%
+          </p>
         </div>
-        <div class="h-16 mt-14">
-          <LineChart></LineChart>
+                <div class="flex items-center justify-between mt-8">
+          <p class="text-white">24h High:</p><p class="text-white">{{aapl.day_high}}</p>
         </div>
-        <ChartModal symbol="AAPL"></ChartModal>
+        <div class="flex items-center justify-between mt-8 mb-6">
+          <p class="text-white">24h Low:</p><p class="text-white">{{aapl.day_low}}</p>      
+        </div>
       </div>
       <div class="w-64 p-4 rounded border hover:shadow-lg bg-indigo-700">
         <div class="flex justify-center items-center flex-col">
           <div class="flex justify-center items-center flex-col mt-3">
+            <div class="image">
+              <img src="https://logo.clearbit.com/microsoft.com?size=80" />
+            </div>
             <p class="text-sm font-medium leading-none text-white">MSFT</p>
             <p class="text-sm font-medium leading-none text-white mt-1">
               Microsoft
@@ -65,53 +51,35 @@
         </div>
         <div class="flex items-center justify-between mt-8">
           <h1 class="text-2xl font-semibold leading-normal text-white">
-            {{ msft }} $
+            {{ msft.price }} $
           </h1>
-          <div class="p-1 flex justify-between">
-            <svg
-              width="16"
-              height="16"
-              viewBox="0 0 16 16"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M8 14V2"
-                stroke="#059669"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              />
-              <path
-                d="M10 4L8 2L6 4"
-                stroke="#059669"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              />
-              <path
-                d="M6 14H10"
-                stroke="#059669"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              />
-            </svg>
-            <p class="text-xs leading-3 text-green-700">1.98%</p>
-          </div>
+          <p
+            :class="{
+              'text-red-500': msft.day_change < 0,
+              'text-green-600': msft.day_change > 0,
+            }"
+          >
+            {{ msft.day_change }}%
+          </p>
         </div>
-        <div class="h-16 mt-14">
-          <canvas
-            height="56"
-            tabindex="0"
-            class="focus:outline-none"
-            aria-label="graph"
-            role="img"
-            id="myChart2"
-          ></canvas>
+        <div class="flex items-center justify-between mt-8">
+          <p class="text-white">24h High:</p>
+          <p class="text-white">{{ msft.day_high }}</p>
         </div>
-        <ChartModal symbol="MSFT"></ChartModal>
+        <div class="flex items-center justify-between mt-8 mb-6">
+          <p class="text-white">24h Low:</p>
+          <p class="text-white">{{ msft.day_low }}</p>
+        </div>
       </div>
       <div class="w-64 p-4 rounded border hover:shadow-lg bg-indigo-700">
         <div class="flex justify-center items-center flex-col">
           <div class="flex justify-center items-center flex-col mt-3">
+            <div class="image">
+              <img
+                class="my-auto"
+                src="https://logo.clearbit.com/google.com?size=80"
+              />
+            </div>
             <p class="text-sm font-medium leading-none text-white">GOOGL</p>
             <p class="text-sm font-medium leading-none text-white">
               Alphabet Inc Class A
@@ -120,57 +88,28 @@
         </div>
         <div class="flex items-center justify-between mt-8">
           <h1 class="text-2xl font-semibold leading-normal text-white">
-            {{ googl }} $
+            {{ googl.price }} $
           </h1>
-          <div class="p-1 flex justify-between">
-            <svg
-              width="16"
-              height="16"
-              viewBox="0 0 16 16"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M8 14V2"
-                stroke="#059669"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              />
-              <path
-                d="M10 4L8 2L6 4"
-                stroke="#059669"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              />
-              <path
-                d="M6 14H10"
-                stroke="#059669"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              />
-            </svg>
-            <p class="text-xs leading-3 text-green-700">2.90%</p>
-          </div>
+          <p
+            :class="{
+              'text-red-500': googl.day_change < 0,
+              'text-green-600': googl.day_change > 0,
+            }"
+          >
+            {{ googl.day_change }}%
+          </p>
         </div>
-        <div class="h-16 mt-14">
-          <canvas
-            height="56"
-            tabindex="0"
-            class="focus:outline-none"
-            aria-label="graph"
-            role="img"
-            id="myChart3"
-          ></canvas>
+        <div class="flex items-center justify-between mt-8">
+          <p class="text-white">24h High:</p>
+          <p class="text-white">{{ googl.day_high }}</p>
         </div>
-<<<<<<< HEAD:src/components/TrendingStocks.vue
-        <ChartModal></ChartModal>
-=======
-          <ChartModal symbol="GOOGL"></ChartModal>
+        <div class="flex items-center justify-between mt-8 mb-6">
+          <p class="text-white">24h Low:</p>
+          <p class="text-white">{{ googl.day_low }}</p>
         </div>
->>>>>>> 53c05bb206e7ba70e8f50328c5de40b949afc061:client/src/components/TrendingStocks.vue
       </div>
     </div>
-  </body>
+  </div>
 </template>
 
 <script setup>
@@ -178,7 +117,6 @@ import { onMounted, ref } from 'vue';
 import axios from 'axios';
 import get24h from '../getData.js';
 import ChartModal from './ChartModal.vue';
-
 
 let aapl = ref('');
 let msft = ref('');
@@ -189,29 +127,20 @@ let googl = ref('');
 //     'https://api.stockdata.org/v1/data/quote?symbols=AAPL%2CMSFT%2CGOOGL&api_token=eJLUoUVC234SV2oMXYJYNj8SWxehg0B8HNJj41uD'
 //   );
 
-<<<<<<< HEAD:src/components/TrendingStocks.vue
 onMounted(async () => {
   const { data } = await axios.get(
-    'https://api.stockdata.org/v1/data/quote?symbols=AAPL%2CMSFT%2CGOOGL&api_token=eJLUoUVC234SV2oMXYJYNj8SWxehg0B8HNJj41uD'
+    'https://api.stockdata.org/v1/data/quote?symbols=AAPL%2CMSFT%2CGOOGL&api_token=cx6vIPYVwWq3TbwrbSdY3nMCulfjF4syxr0zyFAL'
   );
 
   console.log(data);
-  aapl.value = data.data[0].price;
-  msft.value = data.data[1].price;
-  googl.value = data.data[2].price;
+  aapl.value = data.data[0];
+  msft.value = data.data[1];
+  googl.value = data.data[2];
 });
-=======
-// onMounted(async () => {
-//   const { data } = await axios.get(
-//     'https://api.stockdata.org/v1/data/quote?symbols=AAPL%2CMSFT%2CGOOGL&api_token=eJLUoUVC234SV2oMXYJYNj8SWxehg0B8HNJj41uD'
-//   );
-
-//   console.log(data);
-//   aapl.value = data.data[0].price;
-//   msft.value = data.data[1].price;
-//   googl.value = data.data[2].price;
-// });
-
->>>>>>> 53c05bb206e7ba70e8f50328c5de40b949afc061:client/src/components/TrendingStocks.vue
 </script>
-
+<style>
+.image {
+  height: 5rem;
+  justify-content: center;
+}
+</style>

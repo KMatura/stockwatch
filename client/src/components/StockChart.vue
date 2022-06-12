@@ -73,10 +73,16 @@ export default {
       console.log('symbol', this.symbol);
       const data = await get24hData(this.symbol);
       console.log('stcdata',data);
-      let dates = data.map((item) =>
-        format(parseJSON(item.date), 'dd-MM hh:mm')
-      );
+      let dates = data.map(item => format(parseJSON(item.date), 'dd-MM HH:mm'));
 
+      dates = dates.map((item, index) => {
+        if (index % 2 === 0) {
+          return item;
+        } else {
+          return '';
+        }
+      });   
+  	  console.log(dates)
       const closes = data.map((item) => item.data.close);
       this.chartData.labels = dates;
       this.chartData.datasets[0].label = data[0].ticker;
@@ -91,7 +97,7 @@ export default {
 
 <style scoped>
 div { 
-  width: 35vw;
+  width: 40vw;
   background-color:aliceblue;
   margin-left: auto;
   margin-right: auto;

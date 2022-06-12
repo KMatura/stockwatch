@@ -2,7 +2,7 @@
   <div
     id="modal"
     tabindex="-1"
-    class="flex h-max justify-center hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 w-full md:inset-0 h-modal md:h-full"
+    class="h-max justify-center hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 w-full md:inset-0 h-modal md:h-full"
   >
     <div class="m-auto relative p-4 w-full max-w-4xl h-full md:h-auto">
       <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
@@ -10,7 +10,7 @@
           class="flex justify-between items-center p-5 rounded-t border-b dark:border-gray-600"
         >
           <h3 class="text-xl font-medium text-gray-900 dark:text-white">
-            {{ symbol }}
+            {{ }}
           </h3>
           <button
             @click="modalHandler()"
@@ -32,9 +32,18 @@
             </svg>
           </button>
         </div>
-        <div class="p-6 space-y-6 w-64">
-          <div class="w-64">
+        <div class="flex p-6 space-y-6 w-full row">
+          <div class="w-2/3">
             <LineChart :symbol="symbol"></LineChart> <!--nciht sofort laden -->
+          </div>
+          <div class="ml-5 w-64 col">
+            <div class="items-center justify-between mt-8">
+              <p class="text-white">Price: {{data[0].price }}$</p>
+              <p class="text-white">24h High: {{ data[0].day_high }}$</p>
+              <p class="text-white">24h Low: {{ data[0].day_low }}$</p>
+              <p class="text-white">Yearly High: {{ data[0]['52_week_high'] }}$</p>
+              <p class="text-white">Yearly Low: {{ data[0]['52_week_low'] }}$</p>
+            </div>
           </div>
         </div>
         <div
@@ -75,16 +84,17 @@
 <script>
 import { ref } from 'vue';
 import LineChart from './StockChart.vue';
-
+import get24hData from '../getData.js';
+import axios from 'axios';
 
 export default {
   name: 'CentreAlignedShort',
-  components: {
-    LineChart,
-  },
   methods: {
-    modalHandler(val) {
+    async modalHandler(val) {
       let el = document.getElementById('modal');
+      const result = await axios.get(`https://api.stockdata.org/v1/data/quote?symbols=${this.symbol}&api_token=cx6vIPYVwWq3TbwrbSdY3nMCulfjF4syxr0zyFAL`);
+      this.data = result.data
+      console.log(result.data)
       if (val) {
         this.fadeIn(el);
       } else {
@@ -115,6 +125,31 @@ export default {
   },
   props: {
     symbol: String,
-  }
+  },
+  data: () => ({
+    data: [
+    {
+      "ticker": "AAPL",
+      "name": "Apple Inc",
+      "exchange_short": "NASDAQ",
+      "exchange_long": "NASDAQ Stock Exchange",
+      "mic_code": "XNAS",
+      "currency": "USD",
+      "price": null,
+      "day_high": 140.72,
+      "day_low": 137.09,
+      "day_open": 140.32,
+      "52_week_high": 182.94,
+      "52_week_low": 127.07,
+      "market_cap": 2249809723392,
+      "previous_close_price": 142.61,
+      "previous_close_price_time": "2022-06-09T16:00:00.000000",
+      "day_change": -4,
+      "volume": 1830996,
+      "is_extended_hours_price": false,
+      "last_trade_time": "2022-06-10T16:00:00.000000"
+    }
+  ]
+  }),
 };
 </script>

@@ -48,7 +48,7 @@
           <tr v-for="(r,i) in result" :key="i" class="bg-indigo-200">
             <td>{{ r['Company Name'] }}</td>
             <td>{{ r['Symbol'] }}</td>
-            <ChartModal :symbol="r['Symbol']"></ChartModal>
+            <ChartModal v-if="result.length == 1" :symbol="r['Symbol']"></ChartModal>
           </tr>
         </tbody>
       </table>
