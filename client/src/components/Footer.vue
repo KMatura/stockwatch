@@ -1,8 +1,8 @@
 <template>
-  <div class="content-center fixed bottom-0">
+  <div class="">
     <body class="overflow-y-hidden bg-indigo-50">
       <div class="mx-auto container xl:px-20 lg:px-12 sm:px-6 px-4 px-4 py-12">
-        <div class="flex flex-col items-center justify-center">
+        <div class="flex flex-col items-center ">
           <div>
             <svg
               width="111"

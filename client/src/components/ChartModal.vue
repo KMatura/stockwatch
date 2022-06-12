@@ -76,7 +76,7 @@
       data-modal-toggle="extralarge-modal"
       @click="modalHandler(true)"
     >
-      View Chart {{ symbol }}
+      View {{ symbol }}
     </button>
   </div>
 </template>

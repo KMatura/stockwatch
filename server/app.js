@@ -7,6 +7,7 @@ import routes from './routes/index.js';
 import { errorHandler, notFoundHandler } from './middleware/errorHandler.js';
 import session from 'express-session';
 import cors from 'cors';
+import pgSimple from 'connect-pg-simple';
 
 dotenv.config();
 
@@ -26,6 +27,7 @@ const { PORT, NODE_ENV, SESSION_LIFETIME, SESSION_NAME, SESSION_SECRET } = proce
 
 app.use(
   session({
+    store: new (pgSimple(session))(),
     secret: SESSION_SECRET,
     name: SESSION_NAME,
     saveUninitialized: false,
