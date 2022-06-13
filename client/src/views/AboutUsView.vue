@@ -21,11 +21,11 @@
             />
           </div>
           <div class="flex w-full items-center justify-between pt-6 pb-1">
-            <p class="text-xl font-normal text-gray-800">Dani Jaber</p>
+            <p class="text-xl font-bold text-blue-600">Dani Jaber</p>
             <div class="flex justify-center">
             </div>
           </div>
-          <p class="text-base text-gray-600 pb-3">Frontend</p>
+          <p class="text-base font-semibold text-gray-600 pb-3">Frontend</p>
           <p class="text-sm text-gray-600 leading-6 font-normal">
             Dani Jaber is a frontend developer with a passion for building beautiful, responsive
             websites. He has a background in web development and has a strong passion for building
@@ -33,9 +33,9 @@
           </p>
         </div>
         <div
-          class="bg-indigo-700 rounded-md lg:w-96 w-80 flex flex-col items-center justify-center md:py-0 py-12"
+          class="bg-blue-600 rounded-md lg:w-96 w-80 flex flex-col items-center justify-center md:py-0 py-12"
         >
-          <h3 class="text-2xl font-semibold leading-6 text-center text-white">About Team</h3>
+          <h3 class="text-3xl font-bold leading-6 text-center text-white">About Team</h3>
           <p class="lg:w-80 lg:px-0 px-4 text-base leading-6 text-center text-white mt-6">
             Teamwork is the collaborative effort of a team to achieve a common goal or to complete
             task in the most effective way. This concept is seen in the greater framework of a team
@@ -53,13 +53,9 @@
             />
           </div>
           <div class="flex w-full items-center justify-between pt-6 pb-1">
-            <p class="text-xl font-normal text-gray-800">Krzysztof Matura</p>
-            <div class="flex justify-center">
-              <a href="javascript:void(0)" class="mx-2">
-              </a>
-            </div>
+            <p class="text-xl font-bold text-blue-600">Krzysztof Matura</p>
           </div>
-          <p class="text-base text-gray-600 pb-3">Backend</p>
+          <p class="text-base font-semibold text-gray-600 pb-3">Backend</p>
           <p class="text-sm text-gray-600 leading-6 font-normal">
             Krzysztof Matura is a backend developer with a passion for building scalable,
             performant, and secure web applications. He has a background in software development and

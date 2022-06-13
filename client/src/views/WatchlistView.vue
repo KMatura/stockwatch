@@ -1,7 +1,9 @@
 <template>
   <div>
     <NavBar></NavBar>
-    <h1>{{ secret }}</h1>
+    <br>
+    <h3 class="text-5xl text-center font-bold text-blue-500">{{ userStore.user.name }}'s Watchlist</h3>
+    <h1 v-if="secret.length > 0">{{ secret }}</h1>
     <ListTable></ListTable>
   </div>
 </template>

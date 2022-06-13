@@ -9,30 +9,30 @@
         <thead>
           <tr class="w-full h-16 border-gray-300 border-b py-8">
             <th
-              class="pl-8 text-gray-600 dark:text-gray-400 font-normal pr-6 text-left text-sm tracking-normal leading-4"
+              class="pl-8 text-blue-600 dark:text-gray-400 font-normal pr-6 text-left text-sm tracking-normal leading-4"
             ></th>
             <th
-              class="text-gray-600 dark:text-gray-400 font-normal pr-6 text-left text-sm tracking-normal leading-4"
+              class="text-gray-600 dark:text-gray-400 font-semibold pr-6 text-left text-sm tracking-normal leading-4"
             >
               Stock
             </th>
             <th
-              class="text-gray-600 dark:text-gray-400 font-normal pr-6 text-left text-sm tracking-normal leading-4"
+              class="text-gray-600 dark:text-gray-400 font-semibold pr-6 text-left text-sm tracking-normal leading-4"
             >
               Stock-ID
             </th>
             <th
-              class="text-gray-600 dark:text-gray-400 font-normal pr-6 text-left text-sm tracking-normal leading-4"
+              class="text-gray-600 dark:text-gray-400 font-semibold pr-6 text-left text-sm tracking-normal leading-4"
             >
               Sell
             </th>
             <th
-              class="text-gray-600 dark:text-gray-400 font-normal pr-6 text-left text-sm tracking-normal leading-4"
+              class="text-gray-600 dark:text-gray-400 font-semibold pr-6 text-left text-sm tracking-normal leading-4"
             >
               Buy
             </th>
             <th
-              class="text-gray-600 dark:text-gray-400 font-normal pr-6 text-left text-sm tracking-normal leading-4"
+              class="text-gray-600 dark:text-gray-400 font-semibold pr-6 text-left text-sm tracking-normal leading-4"
             >
               Change
             </th>

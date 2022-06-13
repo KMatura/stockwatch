@@ -147,7 +147,7 @@ import { RouterLink, createWebHistory, RouterView } from 'vue-router';
           <div class="mt-8">
             <button
               role="button"
-              class="focus:ring-2 focus:ring-offset-2 focus:ring-indigo-700 text-sm font-semibold leading-none text-white focus:outline-none bg-indigo-700 border rounded hover:bg-indigo-600 py-4 w-full"
+              class="focus:ring-2 focus:ring-offset-2 focus:ring-blue-600 text-sm font-semibold leading-none text-white focus:outline-none bg-indigo-700 border rounded hover:bg-indigo-600 py-4 w-full"
             >
               Sign In
             </button>

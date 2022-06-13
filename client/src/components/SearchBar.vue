@@ -34,7 +34,7 @@
             </svg>
           </div>
           <button
-            class="bg-indigo-700 text-white lg:max-w-[164px] font-medium px-6 py-4 w-full rounded-[4px] leading-[14px] hover:bg-indigo-600"
+            class="bg-blue-600 text-white lg:max-w-[164px] font-medium px-6 py-4 w-full rounded-[4px] leading-[14px] hover:bg-blue-700"
             @click="searchSubmit"
           >
             Search
