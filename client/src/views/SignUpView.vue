@@ -41,17 +41,29 @@
               href="javascript:void(0)"
               class="hover:text-gray-500 focus:text-gray-500 focus:outline-none focus:underline hover:underline text-sm font-medium leading-none text-gray-800 cursor-pointer"
             >
-              <RouterLink to="/login">Sign in here</RouterLink></a
+              <RouterLink to="/login">Login here</RouterLink></a
             >
           </p>
-          <br />
           <form @submit.prevent="register">
+            <div class="mt-6 w-full">
+              <label for="secret" class="text-sm font-medium leading-none text-gray-800">
+                Vor- und Nachname
+              </label>
+              <div class="relative flex items-center justify-center">
+                <input
+                  v-model="secret"
+                  type="text"
+                  class="bg-gray-200 border rounded text-xs font-medium leading-none text-gray-800 py-3 w-full pl-3 mt-2"
+                />
+              </div>
+            </div>
+            <br />
             <div>
-              <label for="userName" class="text-sm font-medium leading-none text-gray-800">
+              <label for="username" class="text-sm font-medium leading-none text-gray-800">
                 Username
               </label>
               <input
-                v-model="username"
+                v-model="name"
                 type="text"
                 aria-labelledby="lastName"
                 class="bg-gray-200 border rounded text-xs font-medium leading-none placeholder-gray-800 text-gray-800 py-3 w-full pl-3 mt-2"
@@ -149,19 +161,26 @@
 import NavBar from '../components/NavBar.vue';
 import { ref } from 'vue';
 import axios from 'axios';
+import { useRouter } from 'vue-router';
 
-let username = ref('');
+let name = ref('');
 let email = ref('');
 let password = ref('');
+let secret = ref('');
 let message = ref('');
+
+const router = useRouter();
 
 const register = async () => {
   try {
     const { data } = await axios.post('/api/register', {
-      username: username.value,
+      name: name.value,
       email: email.value,
+      secret: secret.value,
       password: password.value,
     });
+    message.value = data;
+    router.push('/login');
   } catch (error) {
     if (error.response.status === 404) message.value = 'Server antwortet nicht';
     else message.value = error.response.data;
