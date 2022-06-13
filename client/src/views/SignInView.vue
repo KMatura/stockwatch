@@ -42,11 +42,18 @@
                 href="javascript:void(0)"
                 class="hover:text-gray-500 focus:text-gray-500 focus:outline-none focus:underline hover:underline text-sm font-medium leading-none text-gray-800 cursor-pointer"
               >
-                <RouterLink to="/register">Sign up here</RouterLink></a
+                <RouterLink to="/register">Register here</RouterLink></a
               >
             </p>
             <br />
             <form @submit.prevent="login">
+              <div v-if="!valid" class="row justify-content-center">
+                <div class="col-4">
+                  <p class="alert alert-danger text-center">
+                    Please provide a valid email and password combination!
+                  </p>
+                </div>
+              </div>
               <div>
                 <label for="email" class="text-sm font-medium leading-none text-gray-800">
                   Email
@@ -148,22 +155,17 @@ import { useUserStore } from '../stores/userStore';
 
 let valid = ref(true);
 
-let email = ref('jaber.d03@htlwienwest.at');
-let password = ref('1234');
+let email = ref('');
+let password = ref('');
 
 const userStore = useUserStore();
 
 const login = async () => {
-  await axios
-    .post('/api/login', {
-      email: email.value,
-      password: password.value,
-    })
-    .then((res) => {
-      if (!res.statusCode == 200) return (valid.value = false);
-      const { id, name } = res.data;
-      userStore.saveUserData(id, name);
-      router.push('/account');
-    });
+  const response = await axios.post('/api/login', {
+    email: email.value,
+    password: password.value,
+  });
+  userStore.saveUserData(response.data.uid, response.data.name);
+  router.push('/watchlist');
 };
 </script>

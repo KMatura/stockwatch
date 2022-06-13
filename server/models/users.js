@@ -1,6 +1,6 @@
 import query from '../db/index.js';
 
-const dbPostUser = async ({ name, email, password, secret }) => {
+const dbPostUser = async ({ name, email, password, secret}) => {
   const { rows } = await query(
     'INSERT INTO users(name, email, password, secret) values ($1, $2, $3, $4) returning *',
     [name, email, password, secret],

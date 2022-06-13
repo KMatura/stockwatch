@@ -1,5 +1,5 @@
 import { validateLogin, validateRegister } from './validators.js';
-import { users } from '../models/users.js';
+import { dbPostUser, dbGetUsers, dbGetUserByEmail } from '../models/users.js';
 import bcrypt from 'bcrypt';
 
 const login = async (req, res) => {
@@ -9,9 +9,9 @@ const login = async (req, res) => {
   if ((await bcrypt.compare(req.body.password, user.password)) == false)
     return res.status(401).send('Invalid password!');
   if (user) {
-    const { uid, name } = user;
+    const { uid, username } = user;
     req.session.userId = user.uid;
-    return res.status(200).json({ uid, name });
+    return res.status(200).json({ uid, username });
   }
 };
 

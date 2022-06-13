@@ -64,7 +64,8 @@ const router = createRouter({
       },
     },
     {
-      path: '/catchall(.*)',
+      path: '/:catchall(.*)',
+      name: 'NotFound',
       component: NotFoundView,
     },
   ],
