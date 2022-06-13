@@ -97,7 +97,7 @@ export default {
 
 <style scoped>
 div { 
-  width: 40vw;
+  width: 30vw;
   background-color:aliceblue;
   margin-left: auto;
   margin-right: auto;

@@ -48,7 +48,7 @@
           <tr v-for="(r,i) in result" :key="i" class="bg-indigo-200">
             <td>{{ r['Company Name'] }}</td>
             <td>{{ r['Symbol'] }}</td>
-            <ChartModal v-if="result.length == 1" :symbol="r['Symbol']"></ChartModal>
+            <AsyncComp v-if="result.length == 1" :symbol="r['Symbol']"></AsyncComp>
           </tr>
         </tbody>
       </table>
@@ -57,13 +57,15 @@
 </template>
 
 <script setup>
-import { computed, ref, watch } from 'vue';
+import { computed, ref, watch, defineAsyncComponent } from 'vue';
 import companies from '../../devserver/nasdaq-listed-symbols.json';
 import _ from 'lodash';
 import ChartModal from './ChartModal.vue';
 
 const result = ref([]);
 const searchTerm = ref('');
+
+const AsyncComp = defineAsyncComponent(() => import('./ChartModal.vue'));
 
 watch(searchTerm, (newTerm, oldTerm) => {
   const resultStart = companies.filter((corp) =>

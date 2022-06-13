@@ -127,16 +127,16 @@ let googl = ref('');
 //     'https://api.stockdata.org/v1/data/quote?symbols=AAPL%2CMSFT%2CGOOGL&api_token=eJLUoUVC234SV2oMXYJYNj8SWxehg0B8HNJj41uD'
 //   );
 
-onMounted(async () => {
-  const { data } = await axios.get(
-    'https://api.stockdata.org/v1/data/quote?symbols=AAPL%2CMSFT%2CGOOGL&api_token=cx6vIPYVwWq3TbwrbSdY3nMCulfjF4syxr0zyFAL'
-  );
+// onMounted(async () => {
+//   const { data } = await axios.get(
+//     'https://api.stockdata.org/v1/data/quote?symbols=AAPL%2CMSFT%2CGOOGL&api_token=cx6vIPYVwWq3TbwrbSdY3nMCulfjF4syxr0zyFAL'
+//   );
 
-  console.log(data);
-  aapl.value = data.data[0];
-  msft.value = data.data[1];
-  googl.value = data.data[2];
-});
+//   console.log(data);
+//   aapl.value = data.data[0];
+//   msft.value = data.data[1];
+//   googl.value = data.data[2];
+// });
 </script>
 <style>
 .image {
