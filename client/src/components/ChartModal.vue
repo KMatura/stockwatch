@@ -4,13 +4,13 @@
     tabindex="-1"
     class="h-max justify-center hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 w-full md:inset-0 h-modal md:h-full"
   >
-    <div class="m-auto relative p-4 w-full max-w-4xl h-full md:h-auto">
+    <div class="m-auto relative p-4 w-1/2 h-full md:h-auto">
       <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
         <div
           class="flex justify-between items-center p-5 rounded-t border-b dark:border-gray-600"
         >
           <h3 class="text-xl font-medium text-gray-900 dark:text-white">
-            {{ }}
+            {{ data.data[0].name}} <small class="ml-8">{{data.data[0].exchange_long}}</small>
           </h3>
           <button
             @click="modalHandler()"
@@ -32,25 +32,51 @@
             </svg>
           </button>
         </div>
-        <div class="flex p-6 space-y-6 w-full row">
-          <div class="w-2/3">
-            <LineChart :symbol="symbol"></LineChart> <!--nciht sofort laden -->
+        <div class="p-6 space-y-6 w-full">
+          <div class="w-full">
+            <LineChart  v-if="data.data[0].ticker!='none'" :symbol="symbol"></LineChart> <!--nciht sofort laden -->
+            <h1 v-else="data.data[0].ticker!='none'" class="text-center">Chart unavailable</h1>
           </div>
-          <div class="ml-5 w-64 col">
-            <div class="items-center justify-between mt-8">
-              <p class="text-white">Price: {{data[0].price }}$</p>
-              <p class="text-white">24h High: {{ data[0].day_high }}$</p>
-              <p class="text-white">24h Low: {{ data[0].day_low }}$</p>
-              <p class="text-white">Yearly High: {{ data[0]['52_week_high'] }}$</p>
-              <p class="text-white">Yearly Low: {{ data[0]['52_week_low'] }}$</p>
-            </div>
+          <div class="w-full flex-row columns-2">
+            <table class="text-white">
+              <tbody>
+                <tr>
+                  <td>Price:</td>
+                  <td class="pl-5">{{ data.data[0].price }}$</td>
+                </tr>
+                <tr>
+                  <td>24h High:</td>
+                  <td class="pl-5">{{ data.data[0].day_high }}$</td>
+                </tr>
+                <tr>
+                  <td>24h Low: </td>
+                  <td class="pl-5">{{ data.data[0].day_low }}$</td>
+                </tr>
+              </tbody>
+            </table>
+            <table class="text-white">
+              <tbody>
+                <tr>
+                  <td>24h Change: </td>
+                  <td class="pl-5" :class="{'text-red-500': data.data[0]['day_change'] < 0}">{{ data.data[0]['day_change'] }}$</td>
+                </tr>
+                <tr class="my-3">
+                  <td>52W-Low</td>
+                  <td class="pl-5">{{ data.data[0]['52_week_low'] }}$</td>
+                </tr>
+                  <tr class="my-3">
+                  <td>52W-High</td>
+                  <td class="pl-5">{{ data.data[0]['52_week_high'] }}$</td>
+                </tr>
+              </tbody>
+            </table>
           </div>
         </div>
         <div
           class="flex items-center p-6 space-x-2 rounded-b border-t border-gray-200 dark:border-gray-600"
         >
           <button
-            @click="modalHandler()"
+            @click="console.log('added')"
             data-modal-toggle="large-modal"
             type="button"
             class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
@@ -82,17 +108,20 @@
 </template>
 
 <script>
-import { ref } from 'vue';
+import { ref, defineAsyncComponent } from 'vue';
 import LineChart from './StockChart.vue';
 import get24hData from '../getData.js';
 import axios from 'axios';
 
 export default {
   name: 'CentreAlignedShort',
+  components: {
+    LineChart,
+  },
   methods: {
     async modalHandler(val) {
       let el = document.getElementById('modal');
-      const result = await axios.get(`https://api.stockdata.org/v1/data/quote?symbols=${this.symbol}&api_token=cx6vIPYVwWq3TbwrbSdY3nMCulfjF4syxr0zyFAL`);
+      const result = await axios.get(`https://api.stockdata.org/v1/data/quote?symbols=${this.symbol}&api_token=eJLUoUVC234SV2oMXYJYNj8SWxehg0B8HNJj41uD`);
       this.data = result.data
       console.log(result.data)
       if (val) {
@@ -126,30 +155,44 @@ export default {
   props: {
     symbol: String,
   },
-  data: () => ({
-    data: [
+  data() {
+    return {
+      data: {
+  "meta": {
+    "requested": 1,
+    "returned": 1
+  },
+  "data": [
     {
-      "ticker": "AAPL",
-      "name": "Apple Inc",
+      "ticker": "none",
+      "name": "Microsoft Corporation",
       "exchange_short": "NASDAQ",
       "exchange_long": "NASDAQ Stock Exchange",
       "mic_code": "XNAS",
       "currency": "USD",
-      "price": null,
-      "day_high": 140.72,
-      "day_low": 137.09,
-      "day_open": 140.32,
-      "52_week_high": 182.94,
-      "52_week_low": 127.07,
-      "market_cap": 2249809723392,
-      "previous_close_price": 142.61,
-      "previous_close_price_time": "2022-06-09T16:00:00.000000",
-      "day_change": -4,
-      "volume": 1830996,
+      "price": 248.04,
+      "day_high": 248.94,
+      "day_low": 244.3,
+      "day_open": 245.02,
+      "52_week_high": 349.67,
+      "52_week_low": 246.44,
+      "market_cap": 1899443781632,
+      "previous_close_price": 252.9,
+      "previous_close_price_time": "2022-06-10T15:59:59.000000",
+      "day_change": -1.96,
+      "volume": 155775,
       "is_extended_hours_price": false,
-      "last_trade_time": "2022-06-10T16:00:00.000000"
+      "last_trade_time": "2022-06-13T10:21:13.000000"
     }
   ]
-  }),
+}
+    };
+  },
 };
 </script>
+<style>
+.line-chart{
+  width: 400px;
+}
+</style>
+
