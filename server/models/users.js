@@ -14,10 +14,22 @@ const dbGetUsers = async () => {
 };
 
 const dbGetUserByEmail = async (email) => {
-  const { rows } = await query('SELECT name, email, password, uid FROM users WHERE email = $1', [
+  const { rows } = await query('SELECT * FROM users WHERE email = $1', [
     email,
   ]);
   return rows[0];
 };
 
-export { dbPostUser, dbGetUsers, dbGetUserByEmail };
+const dbDelUserStock = async (userId, symbol) => {
+  const { rows } = await query(
+    'DELETE FROM userstocks WHERE userid = $1 AND symbol = $2',
+    [userId, symbol],
+  );
+  return rows[0];
+};
+
+const dbAddUserStock = async (userId, symbol) => {
+  
+}
+
+export { dbPostUser, dbGetUsers, dbGetUserByEmail, dbDelUserStock };

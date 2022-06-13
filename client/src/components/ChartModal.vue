@@ -38,7 +38,7 @@
             <h1 v-else="data.data[0].ticker!='none'" class="text-center">Chart unavailable</h1>
           </div>
           <div class="w-full flex-row columns-2">
-            <table class="text-white">
+            <table class="text-grey">
               <tbody>
                 <tr>
                   <td>Price:</td>
@@ -54,7 +54,7 @@
                 </tr>
               </tbody>
             </table>
-            <table class="text-white">
+            <table class="text-grey">
               <tbody>
                 <tr>
                   <td>24h Change: </td>

@@ -18,10 +18,10 @@ import { RouterLink, createWebHistory, RouterView } from 'vue-router';
           </a>
         </div>
         <div class="flex space-x-3 items-center" href="#">
-            <img src="../assets/stockwatch_logo.png" class="w-14" alt="StockWatchLogo" />
-            <h1 class="font-bold text-2xl leading-6 text-blue-600" href="#">
-              <RouterLink to="/">StockWatch</RouterLink>
-            </h1>
+          <img src="../assets/stockwatch_logo.png" class="w-14" alt="StockWatchLogo" />
+          <h1 class="font-bold text-2xl leading-6 text-blue-600" href="#">
+            <RouterLink to="/">StockWatch</RouterLink>
+          </h1>
         </div>
         <div class="hidden sm:flex flex-row space-x-4">
           <button

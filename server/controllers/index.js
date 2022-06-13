@@ -9,9 +9,9 @@ const login = async (req, res) => {
   if ((await bcrypt.compare(req.body.password, user.password)) == false)
     return res.status(401).send('Invalid password!');
   if (user) {
-    const { uid, username } = user;
+    const { uid, name, userstocks } = user;
     req.session.userId = user.uid;
-    return res.status(200).json({ uid, username });
+    return res.status(200).json({ uid, name, userstocks });
   }
 };
 
@@ -60,4 +60,4 @@ const isauthenticated = (req, res) => {
   return false;
 };
 
-export { login, logout, register, getSecret };
+export { login, logout, register, getSecret, redirectLogin, isauthenticated };

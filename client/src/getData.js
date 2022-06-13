@@ -33,10 +33,10 @@ async function get24hData(symbol) {
   const API_KEY_K = 'eJLUoUVC234SV2oMXYJYNj8SWxehg0B8HNJj41uD';
   let url = `https://api.stockdata.org/v1/data/intraday?symbols=${symbol}&api_token=${API_KEY_K}&interval=minute&extended_hours=true`;
   try {
-    const response = await axios.get('http://localhost:3001/data');
-    const data = response.data;
-    // const response = await axios.get(url);
-    // const data = response.data.data;
+    // const response = await axios.get('http://localhost:3001/data');
+    // const data = response.data;
+    const response = await axios.get(url);
+    const data = response.data.data;
     if (data.length < 1) {
       return console.log('No data', response);
     }
@@ -52,7 +52,7 @@ async function get24hData(symbol) {
       );
       return dayData;
     }
-    else {  
+    else {
       dayData = data.filter((element) =>
         isSameDay(parseJSON(element.date), parseJSON(data[0].date))
       );

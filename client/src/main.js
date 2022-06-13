@@ -7,13 +7,13 @@ import piniaPluginPersistedstate from 'pinia-plugin-persistedstate';
 import axios from 'axios';
 
 const app = createApp(App);
-const pinia = createPinia();
-
-axios.defaults.baseURL = 'http://localhost:3000';
-
 app.use(router);
 
+const pinia = createPinia();
+
 pinia.use(piniaPluginPersistedstate);
+
+axios.defaults.baseURL = 'http://localhost:3000';
 
 app.use(pinia);
 app.mount('#app');

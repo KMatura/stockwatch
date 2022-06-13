@@ -7,16 +7,19 @@ export const useUserStore = defineStore('userStore', {
       user: {
         id: '',
         name: '',
+        userstocks: Array,
       },
     };
   },
+  persist: true,
   getters: {
     isAuthenticated: (state) => state.user.id != ''
   },
   actions: {
-    saveUserData(id, name) {
+    saveUserData(id, name, userstocks) {
       this.user.id = id;
       this.user.name = name;
+      this.user.userstocks = userstocks;
     },
     async logout() {
       await axios.get('/api/logout');

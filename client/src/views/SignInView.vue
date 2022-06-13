@@ -165,7 +165,7 @@ const login = async () => {
     email: email.value,
     password: password.value,
   });
-  userStore.saveUserData(response.data.uid, response.data.name);
+  userStore.saveUserData(response.data.uid, response.data.name, response.data.userstocks);
   router.push('/watchlist');
 };
 </script>
