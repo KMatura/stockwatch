@@ -1,5 +1,4 @@
 import { validateLogin, validateRegister } from './validators.js';
-import { users } from '../models/users.js';
 import bcrypt from 'bcrypt';
 
 const login = async (req, res) => {

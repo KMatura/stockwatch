@@ -47,23 +47,11 @@
           <br />
           <form @submit.prevent="register">
             <div>
-              <label for="firsName" class="text-sm font-medium leading-none text-gray-800">
-                First name
+              <label for="userName" class="text-sm font-medium leading-none text-gray-800">
+                Username
               </label>
               <input
-                v-model="firstName"
-                type="text"
-                aria-labelledby="firstName"
-                class="bg-gray-200 border rounded text-xs font-medium leading-none placeholder-gray-800 text-gray-800 py-3 w-full pl-3 mt-2"
-              />
-            </div>
-            <br />
-            <div>
-              <label for="lastName" class="text-sm font-medium leading-none text-gray-800">
-                Last name
-              </label>
-              <input
-                v-model="lastName"
+                v-model="username"
                 type="text"
                 aria-labelledby="lastName"
                 class="bg-gray-200 border rounded text-xs font-medium leading-none placeholder-gray-800 text-gray-800 py-3 w-full pl-3 mt-2"
@@ -162,8 +150,7 @@ import NavBar from '../components/NavBar.vue';
 import { ref } from 'vue';
 import axios from 'axios';
 
-let firstName = ref('');
-let lastName = ref('');
+let username = ref('');
 let email = ref('');
 let password = ref('');
 let message = ref('');
@@ -171,8 +158,7 @@ let message = ref('');
 const register = async () => {
   try {
     const { data } = await axios.post('/api/register', {
-      firstName: firstName.value,
-      lastName: lastName.value,
+      username: username.value,
       email: email.value,
       password: password.value,
     });
