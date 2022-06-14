@@ -16,7 +16,8 @@
         >
           <div class="w-full rounded h-56">
             <img
-              alt=""
+              src="https://cdn.discordapp.com/attachments/545222457431293952/986169606563565608/IMG_2983.jpg"
+              alt="Dani Einzelfoto"
               class="object-cover h-full w-full overflow-hidden rounded shadow"
             />
           </div>
@@ -48,7 +49,8 @@
         >
           <div class="w-full rounded h-56">
             <img
-              alt=""
+              src="https://cdn.discordapp.com/attachments/545222457431293952/986170707975241738/IMG_2994.jpg"
+              alt="Kristof Einzelfoto"
               class="object-cover h-full w-full overflow-hidden rounded shadow"
             />
           </div>
