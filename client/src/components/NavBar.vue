@@ -1,5 +1,8 @@
 <script setup>
 import { RouterLink, createWebHistory, RouterView } from 'vue-router';
+import {useUserStore} from '../stores/UserStore.js';
+
+const userStore = useUserStore();
 </script>
 
 <template>
@@ -23,7 +26,7 @@ import { RouterLink, createWebHistory, RouterView } from 'vue-router';
             <RouterLink to="/">StockWatch</RouterLink>
           </h1>
         </div>
-        <div class="hidden sm:flex flex-row space-x-4">
+        <div v-if="!userStore.isauthenticated" class="hidden sm:flex flex-row space-x-4">
           <button
             class="rounded-md flex space-x-2 w-24 h-10 font-bold text-sm leading-3 text-blue-600 bg-white border border-blue-600 focus:outline-none focus:bg-gray-200 hover:bg-gray-200 duration-150 justify-center items-center"
           >

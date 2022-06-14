@@ -2,6 +2,13 @@
   <div>
     <NavBar></NavBar>
     <br />
+    <button
+      @click="logout()"
+      type="button"
+      class="ml-5 focus:outline-none text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900"
+    >
+      Logout
+    </button>
     <h3 class="text-5xl text-center font-bold text-blue-500">
       {{ userStore.user.name }}'s Watchlist
     </h3>
@@ -115,7 +122,7 @@ onMounted(async () => {
   }
   for (let i = 0; i < stocks.value.length; i++) {
     const { data: stock } = await axios.get(
-      `https://api.stockdata.org/v1/data/quote?symbols=${stocks.value[i]}&api_token=YBnCQp2nppQOUV4DgBjndxbVieFpcTChCqWeywGE`,
+      `https://api.stockdata.org/v1/data/quote?symbols=${stocks.value[i]}&api_token=ACcfK0o2CYfAbwxzjucKlljf0R0xvMXB2SzxUka6`,
     );
     stockData.value.push(stock);
     console.log(stock);
@@ -123,8 +130,19 @@ onMounted(async () => {
 });
 
 const deleteStock = async (ticker) => {
-  const { data } = await axios.delete(
-    ``,
-  );
-};	
+  const data = await axios.post(`/api/users/deleteStock`, {
+    symbol: ticker,
+  });
+};
+
+const addStock = async (ticker) => {
+  const data = await axios.post(`/api/users/addStock`, {
+    symbol: ticker,
+  });
+};
+
+const logout = async () => {
+  const result = await axios.get('/api/logout');
+  console.log(result);
+};
 </script>

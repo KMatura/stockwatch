@@ -11,8 +11,6 @@ app.use(router);
 
 const pinia = createPinia();
 
-pinia.use(piniaPluginPersistedstate);
-
 axios.defaults.baseURL = 'http://localhost:3000';
 
 app.use(pinia);

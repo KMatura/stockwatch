@@ -1,5 +1,5 @@
 import { validateLogin, validateRegister } from './validators.js';
-import { dbPostUser, dbGetUsers, dbGetUserByEmail } from '../models/users.js';
+import { dbPostUser, dbGetUsers, dbGetUserByEmail, dbDelUserStock, dbAddUserStock } from '../models/users.js';
 import bcrypt from 'bcrypt';
 
 const login = async (req, res) => {
@@ -60,4 +60,18 @@ const isauthenticated = (req, res) => {
   return false;
 };
 
-export { login, logout, register, getSecret, redirectLogin, isauthenticated };
+const delUserStock = (req, res) => {
+  console.log(req.session.userid);
+  dbDelUserStock(req.session.userid, req.body.symbol).then((response) => {
+    res.status(200).send(response);
+  });
+};
+
+const addUserStock = (req, res) => {
+  dbAddUserStock(req.session.userid, req.body.symbol).then((response) => {
+    res.status(200).send(response);
+  }
+  );
+};
+
+export { login, logout, register, getSecret, redirectLogin, isauthenticated, delUserStock, addUserStock };

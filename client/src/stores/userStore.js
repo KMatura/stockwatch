@@ -25,6 +25,7 @@ export const useUserStore = defineStore('userStore', {
       await axios.get('/api/logout');
       this.user.id = '';
       this.user.name = '';
+      this.user.userstocks = [];
     },
   },
 });

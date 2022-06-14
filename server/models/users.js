@@ -20,16 +20,20 @@ const dbGetUserByEmail = async (email) => {
   return rows[0];
 };
 
-const dbDelUserStock = async (userId, symbol) => {
+const dbDelUserStock = async (uid, symbol) => {
   const { rows } = await query(
-    'DELETE FROM userstocks WHERE userid = $1 AND symbol = $2',
-    [userId, symbol],
+    'update users set userStocks = (select array_remove(userStocks, $1)) WHERE uid = $2',
+    [uid, symbol],
   );
   return rows[0];
 };
 
 const dbAddUserStock = async (userId, symbol) => {
-  
+  const { rows } = await query(
+    'update users set userStocks = (select array_append(userStocks, $1)) WHERE uid = $2',
+    [symbol, userId],
+  );
+  return rows[0];
 }
 
-export { dbPostUser, dbGetUsers, dbGetUserByEmail, dbDelUserStock };
+export { dbPostUser, dbGetUsers, dbGetUserByEmail, dbDelUserStock, dbAddUserStock };

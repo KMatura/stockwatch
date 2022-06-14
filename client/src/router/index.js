@@ -5,7 +5,6 @@ import AboutUsView from '../views/AboutUsView.vue';
 import SignInView from '../views/SignInView.vue';
 import FAQView from '../views/FAQView.vue';
 import SignUpView from '../views/SignUpView.vue';
-import LogoutView from '../views/LogoutView.vue';
 import AccountView from '../views/AccountView.vue';
 import NotFoundView from '../views/NotFoundView.vue';
 import { useUserStore } from '../stores/userStore.js';
@@ -50,7 +49,7 @@ const router = createRouter({
     {
       path: '/logout',
       name: 'Logout',
-      component: LogoutView,
+      component: HomeView,
     },
     {
       path: '/account',
