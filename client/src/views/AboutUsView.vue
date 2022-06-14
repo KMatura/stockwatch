@@ -26,7 +26,7 @@
             <div class="flex justify-center">
             </div>
           </div>
-          <p class="text-base font-semibold text-gray-600 pb-3">Frontend</p>
+          <p class="text-base font-semibold text-gray-600 pb-3">Frontend and Backend</p>
           <p class="text-sm text-gray-600 leading-6 font-normal">
             Dani Jaber is a frontend developer with a passion for building beautiful, responsive
             websites. He has a background in web development and has a strong passion for building
