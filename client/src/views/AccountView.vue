@@ -5,7 +5,7 @@
       <router-link to="/">Home</router-link> | <router-link to="/logout">Logout</router-link>
     </div>
     <h5 v-if="secret.length > 0" class="my-3 my-3 text-danger">Your secret: {{ secret }}</h5>
-    <p>That's all!</p>
+    <p>Yes das wars</p>
   </div>
 </template>
 
