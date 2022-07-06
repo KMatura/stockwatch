@@ -30,7 +30,7 @@
             tabindex="0"
             class="focus:outline-none text-2xl font-extrabold leading-6 text-gray-800"
           >
-            Register
+            Register Hier
           </p>
           <p
             tabindex="0"
